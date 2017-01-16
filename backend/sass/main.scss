@@ -10,6 +10,7 @@
 @import "../../bower_components/angular-hotkeys/build/hotkeys";
 @import "../../bower_components/intl-tel-input/build/css/intlTelInput";
 @import "icons";
+$brand-dark-blue: #272b49;
 $blue: #1fc8ec;
 $orange: #f29c2c;
 $red: #ea5249;
@@ -107,7 +108,9 @@ a,
 .logo {
     padding: 10px 0 10px 25px;
 }
-
+.top-bar{
+    background: $brand-dark-blue;
+}
 .account-form>form .feild>.login-w {
     background: #125daa none repeat scroll 0 0;
     border: medium none;
@@ -1202,7 +1205,12 @@ body {
     line-height: 120%;
 }
 
-
+.menu-action
+{
+    &::before,&::after ,i::before {
+    background: #fff none repeat scroll 0 0;
+}
+}
 /* Start writing sass here */
 
 @import "fancybox-override";

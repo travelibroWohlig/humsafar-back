@@ -11,6 +11,17 @@ var navigationservice = angular.module('navigationservice', [])
         classis: "active",
         sref: "#!/page/viewUser//",
         icon: "phone"
+    },
+    {
+        name: "Destination Country",
+        classis: "active",
+        sref: "#!/page/viewCountry//",
+        icon: "map"
+    },{
+        name: "Destination City",
+        classis: "active",
+        sref: "#!/page/viewCity//",
+        icon: "location"
     }];
 
     return {

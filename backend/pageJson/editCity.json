@@ -1,0 +1,117 @@
+{
+    "title": "Edit City",
+    "name": "User",
+    "jsonPage": "viewUser",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter Name",
+        "id": "name",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "UTC",
+        "type": "date",
+        "tableRef": "UTC",
+        "placeholder": "Enter UTC",
+        "id": "UTC",
+        "validation": ["", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Weather",
+        "type": "text",
+        "tableRef": "weather",
+        "placeholder": "Enter Weather",
+        "id": "weather",
+        "validation": ["", "trim", ""],
+        "url": ""
+    } , {
+        "name": "Temperature",
+        "type": "text",
+        "tableRef": "temperature",
+        "placeholder": "Enter temperature",
+        "id": "Temperature",
+        "validation": ["", "trim", ""],
+        "url": ""
+    } , {
+        "name": "Description",
+        "type": "text",
+        "tableRef": "description",
+        "placeholder": "Enter Description",
+        "id": "description",
+        "validation": ["", "trim", ""],
+        "url": ""
+    } , {
+        "name": "City Cover Photo",
+        "type": "image",
+        "tableRef": "cityCoverPhoto",
+        "placeholder": "Enter City Cover Photo",
+        "id": "cityCoverPhoto",
+        "validation": ["", "trim", ""],
+        "url": ""
+    } , {
+        "name": "City Display Photo",
+        "type": "text",
+        "tableRef": "cityDisplayPhoto",
+        "placeholder": "Enter City Display Photo",
+        "id": "cityDisplayPhoto",
+        "validation": ["", "trim", ""],
+        "url": ""
+    } , {
+        "name": "Best Month",
+        "type": "text",
+        "tableRef": "bestMonth",
+        "placeholder": "Enter Best Month",
+        "id": "bestMonth",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }  , {
+        "name": "Best Weather",
+        "type": "text",
+        "tableRef": "bestWeather",
+        "placeholder": "Enter Best Weather",
+        "id": "bestWeather",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }  , {
+        "name": "Best Season",
+        "type": "text",
+        "tableRef": "bestSeason",
+        "placeholder": "Enter Best Season",
+        "id": "bestSeason",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitUser",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewUser"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewUser"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "User/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "User/getOne",
+        "params": "_id"
+    }
+
+}
