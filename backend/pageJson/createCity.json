@@ -49,16 +49,21 @@
         "name": "City Cover Photo",
         "type": "image",
         "tableRef": "cityCoverPhoto",
-        "placeholder": "Enter City Cover Photo",
         "id": "cityCoverPhoto",
         "validation": ["", "trim", ""],
         "url": ""
     } , {
         "name": "City Display Photo",
-        "type": "text",
+        "type": "image",
         "tableRef": "cityDisplayPhoto",
-        "placeholder": "Enter City Display Photo",
         "id": "cityDisplayPhoto",
+        "validation": ["", "trim", ""],
+        "url": ""
+    } , {
+        "name": "City Itinerary Photo",
+        "type": "image",
+        "tableRef": "cityItineraryPhoto",
+        "id": "cityItineraryPhoto",
         "validation": ["", "trim", ""],
         "url": ""
     } , {
