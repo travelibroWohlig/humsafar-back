@@ -8,14 +8,6 @@
         "name": "Name",
         "isSort": "",
         "tableRef": "name"
-    }, {
-        "name": "Email",
-        "isSort": "",
-        "tableRef": "email"
-    }, {
-        "name": "Mobile",
-        "isSort": "",
-        "tableRef": "mobile"
     }],
     "action": [{
         "name": "edit",
@@ -33,7 +25,7 @@
         "type": "apiCallConfirm",
         "title": "Delete Country",
         "content": "Are you sure you want to delete User?",
-        "api": "country/delete",
+        "api": "Country/delete",
         "fieldsToSend": {
             "name": "_id"
         }

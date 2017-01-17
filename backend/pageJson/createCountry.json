@@ -2,7 +2,7 @@
   "title": "Create Country",
   "name": "Country",
   "jsonPage": "viewCountry",
-  "desciption": "",
+  "description": "",
   "pageType": "create",
   "urlFields": ["Country"],
     "fields": [{

@@ -21,6 +21,7 @@ var schema = new Schema({
     temperature: String,
     description: String,
     cityCoverPhoto: String,
+    cityOTGCoverPhoto: String,
     cityDisplayPhoto: String,
     cityItineraryPhoto: String,
     bestMonth: String,
@@ -54,7 +55,7 @@ var schema = new Schema({
 schema.plugin(deepPopulate, {});
 schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
-module.exports = mongoose.model('Country', schema);
+module.exports = mongoose.model('City', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema, 'city', 'city'));
 var model = {};

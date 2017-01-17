@@ -2,7 +2,7 @@
   "title": "Create City",
   "name": "City",
   "jsonPage": "viewCity",
-  "desciption": "",
+  "description": "",
   "pageType": "create",
   "urlFields": ["City"],
     "fields": [{
@@ -50,6 +50,7 @@
         "type": "image",
         "tableRef": "cityCoverPhoto",
         "id": "cityCoverPhoto",
+        "size": "1920 X 1080",
         "validation": ["", "trim", ""],
         "url": ""
     } , {
@@ -57,6 +58,7 @@
         "type": "image",
         "tableRef": "cityDisplayPhoto",
         "id": "cityDisplayPhoto",
+        "size": "1920 X 1080",
         "validation": ["", "trim", ""],
         "url": ""
     } , {
@@ -64,6 +66,14 @@
         "type": "image",
         "tableRef": "cityItineraryPhoto",
         "id": "cityItineraryPhoto",
+        "size": "1920 X 1080",
+        "validation": ["", "trim", ""],
+        "url": ""
+    } , {
+        "name": "City OTG Cover Photo",
+        "type": "image",
+        "tableRef": "cityOTGCoverPhoto",
+        "id": "cityOTGCoverPhoto",
         "validation": ["", "trim", ""],
         "url": ""
     } , {
@@ -90,6 +100,53 @@
         "id": "bestSeason",
         "validation": ["", "trim", ""],
         "url": ""
+    },
+    {
+        "name": "Mustdocity",
+        "type": "box",
+        "tableRef": "mustDo",
+        "validation": ["", "trim", ""],
+        "fields": [{
+            "name": "Name",
+            "type": "text",
+            "tableRef": "name",
+            "placeholder": "Enter Name",
+            "id": "name",
+            "onView": true,
+            "validation": ["required", "trim", ""],
+            "url": ""
+        },{
+            "name": "Description",
+            "type": "textarea",
+            "tableRef": "description",
+            "placeholder": "Enter description",
+            "id": "description",
+            "validation": ["", "trim", ""],
+            "url": ""
+        },{
+            "name": "City",
+            "type": "text",
+            "tableRef": "city",
+            "placeholder": "Enter city",
+            "id": "city",
+            "validation": ["", "trim", ""],
+            "url": "",
+            "dropDownField": "",
+            "dropDownType": "single",
+            "onView": true,
+            "dropDown": ["true", "false"]
+        },{
+            "name": "Image",
+            "type": "image",
+            "size": "1920 X 1080",
+            "option": "single",
+            "tableRef": "image",
+            "placeholder": "Enter Image",
+            "id": "input1",
+            "onView": true,
+            "validation": ["", "trim", ""],
+            "url": ""
+        }]
     }],
     "action": [{
         "name": "submit",

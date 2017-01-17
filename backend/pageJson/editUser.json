@@ -2,7 +2,7 @@
     "title": "Edit User",
     "name": "User",
     "jsonPage": "viewUser",
-    "desciption": "",
+    "description": "",
     "pageType": "edit",
     "urlFields": ["_id"],
     "fields": [{

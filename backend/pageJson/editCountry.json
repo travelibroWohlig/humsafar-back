@@ -2,7 +2,7 @@
     "title": "Edit Country",
     "name": "Country",
     "jsonPage": "viewCountry",
-    "desciption": "",
+    "description": "",
     "pageType": "edit",
     "urlFields": ["_id"],
     "fields": [{

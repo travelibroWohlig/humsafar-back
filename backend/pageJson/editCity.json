@@ -2,7 +2,7 @@
     "title": "Edit City",
     "name": "User",
     "jsonPage": "viewUser",
-    "desciption": "",
+    "description": "",
     "pageType": "edit",
     "urlFields": ["_id"],
     "fields": [{
@@ -13,13 +13,15 @@
         "id": "name",
         "validation": ["required", "trim", "unique"],
         "url": ""
-    }, {
+    }, 
+    
+    {
         "name": "UTC",
         "type": "date",
         "tableRef": "UTC",
         "placeholder": "Enter UTC",
         "id": "UTC",
-        "validation": ["", "trim", "unique"],
+        "validation": ["", "trim", ""],
         "url": ""
     }, {
         "name": "Weather",
@@ -66,7 +68,14 @@
         "id": "cityItineraryPhoto",
         "validation": ["", "trim", ""],
         "url": ""
-    }, {
+    } , {
+        "name": "City OTG Cover Photo",
+        "type": "image",
+        "tableRef": "cityOTGCoverPhoto",
+        "id": "cityOTGCoverPhoto",
+        "validation": ["", "trim", ""],
+        "url": ""
+    } , {
         "name": "Best Month",
         "type": "text",
         "tableRef": "bestMonth",
@@ -91,31 +100,12 @@
         "validation": ["", "trim", ""],
         "url": ""
     }],
-    "action": [{
-        "name": "submit",
-        "action": "submitUser",
-        "stateName": {
-            "page": "page",
-            "json": {
-                "id": "viewUser"
-            }
-        }
-    }, {
-        "name": "cancel",
-        "sideMenuRedirect": true,
-        "stateName": {
-            "page": "page",
-            "json": {
-                "id": "viewUser"
-            }
-        }
-    }],
     "apiCall": {
-        "url": "User/save",
+        "url": "City/save",
         "params": "_id"
     },
     "preApi": {
-        "url": "User/getOne",
+        "url": "City/getOne",
         "params": "_id"
     }
 

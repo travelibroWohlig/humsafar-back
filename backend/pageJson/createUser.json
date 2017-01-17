@@ -2,7 +2,7 @@
   "title": "Create User",
   "name": "User",
   "jsonPage": "viewUser",
-  "desciption": "",
+  "description": "",
   "pageType": "create",
   "urlFields": ["User"],
     "fields": [{
