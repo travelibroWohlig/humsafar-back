@@ -24,7 +24,7 @@
         "buttonClass": "btn-danger",
         "type": "apiCallConfirm",
         "title": "Delete Country",
-        "content": "Are you sure you want to delete User?",
+        "content": "Are you sure you want to delete Country?",
         "api": "Country/delete",
         "fieldsToSend": {
             "name": "_id"

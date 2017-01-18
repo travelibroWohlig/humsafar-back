@@ -22,6 +22,16 @@ var navigationservice = angular.module('navigationservice', [])
         classis: "active",
         sref: "#!/page/viewCity//",
         icon: "location"
+    },{
+        name: "MustDo Country",
+        classis: "active",
+        sref: "#!/page/viewMustdocountry//",
+        icon: "location"
+    },{
+        name: "MustDo City",
+        classis: "active",
+        sref: "#!/page/viewMustdocity//",
+        icon: "location"
     }];
 
     return {

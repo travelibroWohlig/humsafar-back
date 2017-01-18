@@ -1,0 +1,79 @@
+{
+    "title": "Create Must Do City",
+    "name": "Mustdo City",
+    "jsonPage": "viewMustdocity",
+    "description": "",
+    "pageType": "create",
+    "fields": [{
+        "name": "Sequence No",
+        "type": "number",
+        "tableRef": "sequenceNo",
+        "placeholder": "Enter Sequence No",
+        "id": "sequenceNo",
+        "validation": ["", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter Name",
+        "id": "name",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Description",
+        "type": "textarea",
+        "tableRef": "description",
+        "placeholder": "Enter Description",
+        "id": "description",
+        "validation": ["", "trim", ""],
+        "url": ""
+    },{
+        "name": "City",
+        "type": "selectFromTable",
+        "tableRef": "City",
+        "placeholder": "Enter City",
+        "id": "city",
+        "searchApi":"searchCall",
+        "validation": ["", "trim", ""],
+        "url": "city/search",
+        "dropDownType": "single"
+    },{
+        "name": "Main Photo",
+        "type": "image",
+        "tableRef": "mainPhoto",
+        "id": "mainPhoto",
+        "validation": ["", "trim", ""],
+        "url": ""
+    } , {
+        "name": "Image Credit",
+        "type": "image",
+        "tableRef": "imageCredit",
+        "id": "imageCredit",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }],
+     "action": [{
+        "name": "submit",
+        "action": "submitMustdocity",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewMustdocity"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewMustdocity"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Mustdocity/save"
+    }
+
+}

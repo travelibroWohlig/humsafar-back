@@ -1,11 +1,19 @@
 {
     "title": "Edit City",
-    "name": "User",
-    "jsonPage": "viewUser",
+    "name": "City",
+    "jsonPage": "viewCity",
     "description": "",
     "pageType": "edit",
     "urlFields": ["_id"],
     "fields": [{
+        "name": "Sequence No",
+        "type": "number",
+        "tableRef": "sequenceNo",
+        "placeholder": "Enter Sequence No",
+        "id": "sequenceNo",
+        "validation": ["", "trim", "unique"],
+        "url": ""
+    },{
         "name": "Name",
         "type": "text",
         "tableRef": "name",
@@ -13,9 +21,17 @@
         "id": "name",
         "validation": ["required", "trim", "unique"],
         "url": ""
-    }, 
-    
-    {
+    },{
+        "name": "Country",
+        "type": "selectFromTable",
+        "tableRef": "Country",
+        "placeholder": "Enter Country",
+        "id": "input1",
+        "searchApi":"searchCall",
+        "validation": ["", "trim", ""],
+        "url": "Country/search",
+        "dropDownType": "single"
+    },{
         "name": "UTC",
         "type": "date",
         "tableRef": "UTC",
@@ -53,12 +69,14 @@
         "tableRef": "cityCoverPhoto",
         "id": "cityCoverPhoto",
         "validation": ["", "trim", ""],
-        "url": ""
+        "url": "",
+         "onView": true
     } , {
         "name": "City Display Photo",
         "type": "image",
         "tableRef": "cityDisplayPhoto",
         "id": "cityDisplayPhoto",
+         "onView": true,
         "validation": ["", "trim", ""],
         "url": ""
     } , {
@@ -66,6 +84,7 @@
         "type": "image",
         "tableRef": "cityItineraryPhoto",
         "id": "cityItineraryPhoto",
+         "onView": true,
         "validation": ["", "trim", ""],
         "url": ""
     } , {
@@ -73,6 +92,7 @@
         "type": "image",
         "tableRef": "cityOTGCoverPhoto",
         "id": "cityOTGCoverPhoto",
+         "onView": true,
         "validation": ["", "trim", ""],
         "url": ""
     } , {

@@ -17,6 +17,7 @@ var schema = new Schema({
     UTC: {
         type: Date
     },
+    sequenceNo: Number,
     weather: String,
     temperature: String,
     description: String,

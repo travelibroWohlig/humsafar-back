@@ -6,6 +6,14 @@
   "pageType": "create",
   "urlFields": ["Country"],
     "fields": [{
+        "name": "Sequence No",
+        "type": "number",
+        "tableRef": "sequenceNo",
+        "placeholder": "Enter Sequence No",
+        "id": "sequenceNo",
+        "validation": ["", "trim", "unique"],
+        "url": ""
+    },{
         "name": "Name",
         "type": "text",
          "tableRef": "name",

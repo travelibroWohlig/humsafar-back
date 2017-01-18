@@ -1,0 +1,85 @@
+{
+    "title": "Edit Must Do Country",
+    "name": "Mustdo",
+    "jsonPage": "viewMustdocountry",
+    "description": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Sequence No",
+        "type": "number",
+        "tableRef": "sequenceNo",
+        "placeholder": "Enter Sequence No",
+        "id": "sequenceNo",
+        "validation": ["", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter Name",
+        "id": "name",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Description",
+        "type": "textarea",
+        "tableRef": "description",
+        "placeholder": "Enter Description",
+        "id": "description",
+        "validation": ["", "trim", ""],
+        "url": ""
+    },{
+        "name": "Country",
+        "type": "selectFromTable",
+        "tableRef": "Country",
+        "placeholder": "Enter Country",
+        "id": "country",
+        "searchApi":"searchCall",
+        "validation": ["", "trim", ""],
+        "url": "Country/search",
+        "dropDownType": "single"
+    },{
+        "name": "Main Photo",
+        "type": "image",
+        "tableRef": "mainPhoto",
+        "id": "mainPhoto",
+        "validation": ["", "trim", ""],
+        "url": ""
+    } , {
+        "name": "Image Credit",
+        "type": "image",
+        "tableRef": "imageCredit",
+        "id": "imageCredit",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }],  
+    "action": [{
+        "name": "submit",
+        "action": "submitMustdocountry",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewMustdocountry"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewMustdocountry"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Mustdocountry/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "Mustdocountry/getOne",
+        "params": "_id"
+    }
+
+}

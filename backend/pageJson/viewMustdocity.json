@@ -1,6 +1,6 @@
 {
-    "title": "City",
-    "description": "List of Cities",
+    "title": "Must Do City",
+    "description": "List of Must Do Cities",
     "pageType": "view",
     "sendIdWithCreate": true,
     "urlFields": ["_id"],
@@ -8,21 +8,13 @@
         "name": "Name",
         "isSort": "",
         "tableRef": "name"
-    }, {
-        "name": "Weather",
-        "isSort": "",
-        "tableRef": "weather"
-    }, {
-        "name": "Temperature",
-        "isSort": "",
-        "tableRef": "temperature"
     }],
     "action": [{
         "name": "edit",
         "icon": "fa-pencil",
         "buttonClass": "btn-primary",
         "type": "page",
-        "action": "editCity",
+        "action": "editMustdocity",
         "fieldsToSend": {
             "_id": "_id"
         }
@@ -31,23 +23,22 @@
         "icon": "fa-trash",
         "buttonClass": "btn-danger",
         "type": "apiCallConfirm",
-        "title": "Delete City",
-        "content": "Are you sure you want to delete City?",
-        "api": "city/delete",
+        "title": "Delete Must Do City",
+        "content": "Are you sure you want to delete Must Do?",
+        "api": "Mustdocity/delete",
         "fieldsToSend": {
-            "name": "_id",
-            "value": "_id"
+            "name": "_id"
         }
     }],
-    "button": [{
+    "button": [ {
         "name": "Create",
         "icon": "plus",
         "class": "btn-success",
         "type": "page",
-        "action": "createCity"
+        "action": "createMustdocity"
     }],
     "apiCall": {
-        "url": "city/search",
+        "url": "Mustdocity/search",
         "params": "_id"
     }
 }
