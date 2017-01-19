@@ -13,7 +13,7 @@ var firstapp = angular.module('firstapp', [
     "jsonservicemod"
 ]);
 
-firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
+firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, $q) {
     // for http request with session
     $httpProvider.defaults.withCredentials = true;
     $stateProvider
@@ -84,6 +84,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
 
     $urlRouterProvider.otherwise("/dashboard");
     $locationProvider.html5Mode(isproduction);
+     $q.reject();
 });
 
 
@@ -97,7 +98,7 @@ firstapp.directive('dateModel', function ($filter, $timeout) {
             $timeout(function () {
                 console.log($filter('date')(new Date($scope.model), 'dd/MM/yyyy'));
                 $scope.model = new Date($scope.model);
-            }, 100)
+            }, 100);
 
         }
     };

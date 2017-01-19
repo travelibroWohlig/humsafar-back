@@ -5,7 +5,8 @@
   "description": "",
   "pageType": "create",
   "urlFields": ["City"],
-    "fields": [{
+    "fields": [
+        {
         "name": "Sequence No",
         "type": "number",
         "tableRef": "sequenceNo",
@@ -30,38 +31,6 @@
         "validation": ["", "trim", ""],
         "url": ""
     }, {
-        "name": "CityCode",
-        "type": "text",
-        "tableRef": "CityCode",
-        "placeholder": "Enter CityCode",
-        "id": "CityCode",
-        "validation": ["", "trim", "unique"],
-        "url": ""
-    }, {
-        "name": "UTC",
-        "type": "date",
-        "tableRef": "UTC",
-        "placeholder": "Enter UTC",
-        "id": "UTC",
-        "validation": ["", "trim", "unique"],
-        "url": ""
-    }, {
-        "name": "Capital",
-        "type": "text",
-        "tableRef": "capital",
-        "placeholder": "Enter Capital",
-        "id": "capital",
-        "validation": ["", "trim", ""],
-        "url": ""
-    }, {
-        "name": "Currency",
-        "type": "text",
-        "tableRef": "currency",
-        "placeholder": "Enter Currency",
-        "id": "currency",
-        "validation": ["", "trim", ""],
-        "url": ""
-    }, {
         "name": "Weather",
         "type": "text",
         "tableRef": "weather",
@@ -78,29 +47,71 @@
         "validation": ["", "trim", ""],
         "url": ""
     }, {
-        "name": "Flag",
-        "type": "image",
-        "tableRef": "flag",
-        "placeholder": "Enter Flag",
-        "id": "flag",
-        "validation": ["", "trim", ""],
-        "url": ""
-    }, {
         "name": "City Cover Photo",
         "type": "image",
-        "tableRef": "CityCoverPhoto",
+        "tableRef": "cityCoverPhoto",
         "placeholder": "Enter City Cover Photo",
-        "id": "CityCoverPhoto",
+        "id": "cityCoverPhoto",
         "validation": ["", "trim", ""],
         "url": ""
     }, {
-        "name": "City Itinerary Banner",
+        "name": "City OTG Cover Photo",
         "type": "image",
-        "tableRef": "CityItineraryBanner",
-        "placeholder": "Enter City Itinerary Banner",
-        "id": "CityItineraryBanner",
+        "tableRef": "cityOTGCoverPhoto",
+        "placeholder": "Enter City OTG Cover Photo",
+        "id": "cityOTGCoverPhoto",
         "validation": ["", "trim", ""],
         "url": ""
+    }, {
+        "name": "City Display Photo",
+        "type": "image",
+        "tableRef": "cityDisplayPhoto",
+        "placeholder": "Enter City Display Photo",
+        "id": "cityDisplayPhoto",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
+        "name": "City Itinerary Photo",
+        "type": "image",
+        "tableRef": "cityItineraryPhoto",
+        "placeholder": "Enter City Itinerary Photo",
+        "id": "cityItineraryPhoto",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
+        "name": "Best Month",
+        "type": "text",
+        "tableRef": "bestMonth",
+        "placeholder": "Enter Best Month",
+        "id": "bestMonth",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
+        "name": "Best Weather",
+        "type": "text",
+        "tableRef": "bestWeather",
+        "placeholder": "Enter Best Weather",
+        "id": "bestWeather",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
+        "name": "Best Season",
+        "type": "text",
+        "tableRef": "bestSeason",
+        "placeholder": "Enter BestSeason",
+        "id": "bestSeason",
+        "validation": ["", "trim", ""],
+        "url": ""
+    },{
+        "name": "Country",
+        "type": "selectFromTable",
+        "tableRef": "Country",
+        "placeholder": "Enter Country",
+        "id": "country",
+        "searchApi":"searchCall",
+        "validation": ["", "trim", ""],
+        "url": "Country/search",
+        "dropDownType": "single"
     }],
     "action": [{
         "name": "submit",
