@@ -91,6 +91,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         if (dataSend.keyword === null || dataSend.keyword === undefined) {
             dataSend.keyword = "";
         }
+
         NavigationService[$scope.api]($scope.url, dataSend, ++i, function (data) {
             if (data.value) {
                 $scope.list = data.data.results;
@@ -154,8 +155,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             filter: filter,
             page: 1
         };
-
-        NavigationService[$scope.api](dataSend, ++i, function (data) {
+        NavigationService[$scope.api]($scope.url,dataSend, ++i, function (data) {
             if (data.value) {
                 $scope.list = data.data.results;
                 $scope.showCreate = false;
@@ -560,90 +560,90 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('CountryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams, toastr) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("country-list");
-    $scope.menutitle = NavigationService.makeactive("Country List");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    $scope.currentPage = $stateParams.page;
-    var i = 0;
-    $scope.search = {
-        keyword: ""
-    };
-    if ($stateParams.keyword) {
-        $scope.search.keyword = $stateParams.keyword;
-    }
-    $scope.showAllCountries = function (keywordChange) {
-        $scope.totalItems = undefined;
-        if (keywordChange) {
-            $scope.currentPage = 1;
-        }
-        NavigationService.searchCountry({
-            page: $scope.currentPage,
-            keyword: $scope.search.keyword
-        }, ++i, function (data, ini) {
-            if (ini == i) {
-                $scope.countries = data.data.results;
-                $scope.totalItems = data.data.total;
-                $scope.maxRow = data.data.options.count;
-            }
-        });
-    };
+// .controller('CountryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams, toastr) {
+//     //Used to name the .html file
+//     $scope.template = TemplateService.changecontent("country-list");
+//     $scope.menutitle = NavigationService.makeactive("Country List");
+//     TemplateService.title = $scope.menutitle;
+//     $scope.navigation = NavigationService.getnav();
+//     $scope.currentPage = $stateParams.page;
+//     var i = 0;
+//     $scope.search = {
+//         keyword: ""
+//     };
+//     if ($stateParams.keyword) {
+//         $scope.search.keyword = $stateParams.keyword;
+//     }
+//     $scope.showAllCountries = function (keywordChange) {
+//         $scope.totalItems = undefined;
+//         if (keywordChange) {
+//             $scope.currentPage = 1;
+//         }
+//         NavigationService.searchCountry({
+//             page: $scope.currentPage,
+//             keyword: $scope.search.keyword
+//         }, ++i, function (data, ini) {
+//             if (ini == i) {
+//                 $scope.countries = data.data.results;
+//                 $scope.totalItems = data.data.total;
+//                 $scope.maxRow = data.data.options.count;
+//             }
+//         });
+//     };
 
-    $scope.changePage = function (page) {
-        var goTo = "country-list";
-        if ($scope.search.keyword) {
-            goTo = "country-list";
-        }
-        $state.go(goTo, {
-            page: page,
-            keyword: $scope.search.keyword
-        });
-    };
-    $scope.showAllCountries();
-    $scope.deleteCountry = function (id) {
-        globalfunction.confDel(function (value) {
-            console.log(value);
-            if (value) {
-                NavigationService.deleteCountry(id, function (data) {
-                    if (data.value) {
-                        $scope.showAllCountries();
-                        toastr.success("Country deleted successfully.", "Country deleted");
-                    } else {
-                        toastr.error("There was an error while deleting country", "Country deleting error");
-                    }
-                });
-            }
-        });
-    };
-})
+//     $scope.changePage = function (page) {
+//         var goTo = "country-list";
+//         if ($scope.search.keyword) {
+//             goTo = "country-list";
+//         }
+//         $state.go(goTo, {
+//             page: page,
+//             keyword: $scope.search.keyword
+//         });
+//     };
+//     $scope.showAllCountries();
+//     $scope.deleteCountry = function (id) {
+//         globalfunction.confDel(function (value) {
+//             console.log(value);
+//             if (value) {
+//                 NavigationService.deleteCountry(id, function (data) {
+//                     if (data.value) {
+//                         $scope.showAllCountries();
+//                         toastr.success("Country deleted successfully.", "Country deleted");
+//                     } else {
+//                         toastr.error("There was an error while deleting country", "Country deleting error");
+//                     }
+//                 });
+//             }
+//         });
+//     };
+// })
 
-.controller('CreateCountryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, toastr) {
-    //Used to name the .html file
+// .controller('CreateCountryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, toastr) {
+//     //Used to name the .html file
 
-    $scope.template = TemplateService.changecontent("country-detail");
-    $scope.menutitle = NavigationService.makeactive("Country");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+//     $scope.template = TemplateService.changecontent("country-detail");
+//     $scope.menutitle = NavigationService.makeactive("Country");
+//     TemplateService.title = $scope.menutitle;
+//     $scope.navigation = NavigationService.getnav();
 
-    $scope.header = {
-        "name": "Create Country"
-    };
-    $scope.formData = {};
-    $scope.saveCountry = function (formData) {
-        console.log($scope.formData);
-        NavigationService.countrySave($scope.formData, function (data) {
-            if (data.value === true) {
-                $state.go('country-list');
-                toastr.success("Country " + formData.name + " created successfully.", "Country Created");
-            } else {
-                toastr.error("Country creation failed.", "Country creation error");
-            }
-        });
-    };
+//     $scope.header = {
+//         "name": "Create Country"
+//     };
+//     $scope.formData = {};
+//     $scope.saveCountry = function (formData) {
+//         console.log($scope.formData);
+//         NavigationService.countrySave($scope.formData, function (data) {
+//             if (data.value === true) {
+//                 $state.go('country-list');
+//                 toastr.success("Country " + formData.name + " created successfully.", "Country Created");
+//             } else {
+//                 toastr.error("Country creation failed.", "Country creation error");
+//             }
+//         });
+//     };
 
-})
+// })
 
 .controller('CreateAssignmentCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, toastr, $stateParams, $uibModal) {
     //Used to name the .html file
@@ -932,37 +932,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('EditCountryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr) {
-    //Used to name the .html file
+// .controller('EditCountryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr) {
+//     //Used to name the .html file
 
-    $scope.template = TemplateService.changecontent("country-detail");
-    $scope.menutitle = NavigationService.makeactive("Country");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+//     $scope.template = TemplateService.changecontent("country-detail");
+//     $scope.menutitle = NavigationService.makeactive("Country");
+//     TemplateService.title = $scope.menutitle;
+//     $scope.navigation = NavigationService.getnav();
 
-    $scope.header = {
-        "name": "Edit Country"
-    };
+//     $scope.header = {
+//         "name": "Edit Country"
+//     };
 
-    NavigationService.getOneCountry($stateParams.id, function (data) {
-        $scope.formData = data.data;
-        console.log('$scope.oneCountry', $scope.oneCountry);
+//     NavigationService.getOneCountry($stateParams.id, function (data) {
+//         $scope.formData = data.data;
+//         console.log('$scope.oneCountry', $scope.oneCountry);
 
-    });
+//     });
 
-    $scope.saveCountry = function (formValid) {
-        NavigationService.countryEditSave($scope.formData, function (data) {
-            if (data.value === true) {
-                $state.go('country-list');
-                console.log("Check this one");
-                toastr.success("Country " + $scope.formData.name + " edited successfully.", "Country Edited");
-            } else {
-                toastr.error("Country edition failed.", "Country editing error");
-            }
-        });
-    };
+//     $scope.saveCountry = function (formValid) {
+//         NavigationService.countryEditSave($scope.formData, function (data) {
+//             if (data.value === true) {
+//                 $state.go('country-list');
+//                 console.log("Check this one");
+//                 toastr.success("Country " + $scope.formData.name + " edited successfully.", "Country Edited");
+//             } else {
+//                 toastr.error("Country edition failed.", "Country editing error");
+//             }
+//         });
+//     };
 
-})
+// })
 
 .controller('SchemaCreatorCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr) {
     //Used to name the .html file

@@ -22,13 +22,11 @@ jsonservicemod.service('JsonService', function ($http, TemplateService, $state, 
             TemplateService.changecontent("view");
           }
           break;
-
         case "create":
           {
             TemplateService.changecontent("detail");
           }
           break;
-
         case "edit":
           {
             TemplateService.changecontent("detail");

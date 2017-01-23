@@ -13,7 +13,7 @@ var firstapp = angular.module('firstapp', [
     "jsonservicemod"
 ]);
 
-firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, $q) {
+firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
     // for http request with session
     $httpProvider.defaults.withCredentials = true;
     $stateProvider
@@ -84,7 +84,6 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
 
     $urlRouterProvider.otherwise("/dashboard");
     $locationProvider.html5Mode(isproduction);
-     $q.reject();
 });
 
 

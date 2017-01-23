@@ -32,7 +32,7 @@
     },{
         "name": "Country",
         "type": "selectFromTable",
-        "tableRef": "Country",
+        "tableRef": "country",
         "placeholder": "Enter Country",
         "id": "country",
         "searchApi":"searchCall",

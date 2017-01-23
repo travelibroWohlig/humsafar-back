@@ -31,12 +31,12 @@
     },{
         "name": "Country",
         "type": "selectFromTable",
-        "tableRef": "Country",
+        "tableRef": "country",
         "placeholder": "Enter Country",
         "id": "country",
         "searchApi":"searchCall",
         "validation": ["", "trim", ""],
-        "url": "Country/search",
+        "url": "country/search",
         "dropDownType": "single"
     },{
         "name": "Main Photo",

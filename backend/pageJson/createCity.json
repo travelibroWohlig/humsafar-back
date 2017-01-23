@@ -2,7 +2,7 @@
   "title": "Create City",
   "name": "City",
   "jsonPage": "viewCity",
-  "description": "",
+  "desciption": "",
   "pageType": "create",
   "urlFields": ["City"],
     "fields": [
@@ -102,16 +102,18 @@
         "id": "bestSeason",
         "validation": ["", "trim", ""],
         "url": ""
-    },{
+    },
+    {
         "name": "Country",
         "type": "selectFromTable",
-        "tableRef": "Country",
+        "tableRef": "country",
         "placeholder": "Enter Country",
         "id": "country",
         "searchApi":"searchCall",
         "validation": ["", "trim", ""],
-        "url": "Country/search",
-        "dropDownType": "single"
+        "url": "country/search",
+        "dropDownType": "single",
+        "dropDown": ["true", "false"]
     }],
     "action": [{
         "name": "submit",
