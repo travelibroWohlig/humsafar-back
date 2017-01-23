@@ -89,6 +89,7 @@
         "name": "Country Cover Photo",
         "type": "image",
         "tableRef": "countryCoverPhoto",
+        "size":"1000 × 664",
         "placeholder": "Enter Country Cover Photo",
         "id": "countryCoverPhoto",
         "validation": ["", "trim", ""],
@@ -96,6 +97,7 @@
     }, {
         "name": "Country Itinerary Banner",
         "type": "image",
+          "size":"1000 × 664",
         "tableRef": "countryItineraryBanner",
         "placeholder": "Enter Country Itinerary Banner",
         "id": "countryItineraryBanner",

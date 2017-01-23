@@ -44,6 +44,7 @@
         "type": "image",
         "tableRef": "mainPhoto",
         "id": "mainPhoto",
+        "size":"1000 × 664",
         "validation": ["", "trim", ""],
         "url": ""
     } , {
@@ -51,6 +52,7 @@
         "type": "image",
         "tableRef": "imageCredit",
         "id": "imageCredit",
+        "size":"1000 × 664",
         "validation": ["", "trim", ""],
         "url": ""
     }],  

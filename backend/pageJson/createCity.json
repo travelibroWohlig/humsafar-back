@@ -49,15 +49,19 @@
     }, {
         "name": "City Cover Photo",
         "type": "image",
+        "option": "single",
         "tableRef": "cityCoverPhoto",
         "placeholder": "Enter City Cover Photo",
+       "size":"1000 × 664",
         "id": "cityCoverPhoto",
         "validation": ["", "trim", ""],
         "url": ""
     }, {
         "name": "City OTG Cover Photo",
         "type": "image",
+        "option": "single",
         "tableRef": "cityOTGCoverPhoto",
+       "size":"1000 × 664",
         "placeholder": "Enter City OTG Cover Photo",
         "id": "cityOTGCoverPhoto",
         "validation": ["", "trim", ""],
@@ -66,6 +70,7 @@
         "name": "City Display Photo",
         "type": "image",
         "tableRef": "cityDisplayPhoto",
+       "size":"1000 × 664",
         "placeholder": "Enter City Display Photo",
         "id": "cityDisplayPhoto",
         "validation": ["", "trim", ""],
@@ -74,6 +79,7 @@
         "name": "City Itinerary Photo",
         "type": "image",
         "tableRef": "cityItineraryPhoto",
+       c
         "placeholder": "Enter City Itinerary Photo",
         "id": "cityItineraryPhoto",
         "validation": ["", "trim", ""],
