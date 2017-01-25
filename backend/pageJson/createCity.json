@@ -79,7 +79,6 @@
         "name": "City Itinerary Photo",
         "type": "image",
         "tableRef": "cityItineraryPhoto",
-       c
         "placeholder": "Enter City Itinerary Photo",
         "id": "cityItineraryPhoto",
         "validation": ["", "trim", ""],

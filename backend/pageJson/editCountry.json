@@ -38,14 +38,6 @@
         "validation": ["", "trim", "unique"],
         "url": ""
     }, {
-        "name": "UTC",
-        "type": "date",
-        "tableRef": "UTC",
-        "placeholder": "Enter UTC",
-        "id": "UTC",
-        "validation": ["", "trim", "unique"],
-        "url": ""
-    }, {
         "name": "Capital",
         "type": "text",
         "tableRef": "capital",

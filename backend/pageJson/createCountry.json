@@ -37,22 +37,16 @@
         "id": "countryCode",
         "validation": ["", "trim", "unique"],
         "url": ""
-    }, {
-        "name": "UTC",
-        "type": "date",
-        "tableRef": "UTC",
-        "placeholder": "Enter UTC",
-        "id": "UTC",
-        "validation": ["", "trim", "unique"],
-        "url": ""
-    }, {
+    },{
         "name": "Capital",
-        "type": "text",
+        "type": "selectFromTable",
         "tableRef": "capital",
         "placeholder": "Enter Capital",
         "id": "capital",
+        "searchApi":"searchCall",
         "validation": ["", "trim", ""],
-        "url": ""
+        "url": "City/search",
+        "dropDownType": "single"
     }, {
         "name": "Currency",
         "type": "text",

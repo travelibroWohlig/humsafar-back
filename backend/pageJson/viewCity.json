@@ -8,14 +8,6 @@
         "name": "Name",
         "isSort": "",
         "tableRef": "name"
-    }, {
-        "name": "Weather",
-        "isSort": "",
-        "tableRef": "weather"
-    }, {
-        "name": "Temperature",
-        "isSort": "",
-        "tableRef": "temperature"
     }],
     "action": [{
         "name": "edit",
