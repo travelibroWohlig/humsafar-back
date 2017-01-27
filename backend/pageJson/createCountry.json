@@ -74,6 +74,7 @@
     }, {
         "name": "Flag",
         "type": "image",
+         "view":true,
         "tableRef": "flag",
         "placeholder": "Enter Flag",
         "id": "flag",
@@ -82,8 +83,9 @@
     }, {
         "name": "Country Cover Photo",
         "type": "image",
+         "view":true,
         "tableRef": "countryCoverPhoto",
-        "size":"1000 × 664",
+        "size":"1980 x 1080",
         "placeholder": "Enter Country Cover Photo",
         "id": "countryCoverPhoto",
         "validation": ["", "trim", ""],
@@ -91,7 +93,7 @@
     }, {
         "name": "Country Itinerary Banner",
         "type": "image",
-          "size":"1000 × 664",
+        "view":true,
         "tableRef": "countryItineraryBanner",
         "placeholder": "Enter Country Itinerary Banner",
         "id": "countryItineraryBanner",

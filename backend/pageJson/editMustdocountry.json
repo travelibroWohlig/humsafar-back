@@ -42,7 +42,9 @@
     },{
         "name": "Main Photo",
         "type": "image",
+        "view":true,
         "tableRef": "mainPhoto",
+          "disabled": true,
         "id": "mainPhoto",
         "size":"1000 × 664",
         "validation": ["", "trim", ""],
@@ -50,6 +52,7 @@
     } , {
         "name": "Image Credit",
         "type": "image",
+        "view":true,
         "tableRef": "imageCredit",
         "id": "imageCredit",
         "size":"1000 × 664",

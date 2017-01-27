@@ -1,7 +1,8 @@
 <div class="form-group">
   <!-- <label for="exampleInputEmail1" style="margin:5px;">Image Upload</label> -->
+  <!--<p>{{model}}{{type}}</p>-->
   <div class="img-box" ng-if="model && !isMultiple" ng-hide="noShow">
-    <img ng-src="{{model|uploadpath}}" class="img-responsive uploadingImage img-thumbnail" ng-if="type=='img'" />
+    <img ng-src="{{model|uploadpath}}" class="img-responsive uploadingImage img-thumbnail" ng-if="type=='image'" />
     <iframe src="{{model|uploadpath}}" style="width:400px; height:400px;" frameborder="0" ng-if="type=='pdf'"></iframe>
   </div>
   <div class="clearfix" ng-if="model && isMultiple" ng-hide="noShow">

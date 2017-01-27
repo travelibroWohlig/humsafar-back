@@ -41,6 +41,7 @@
     },{
         "name": "Main Photo",
         "type": "image",
+        "view":true,
         "size":"1000 × 664",
         "tableRef": "mainPhoto",
         "id": "mainPhoto",
@@ -49,6 +50,7 @@
     } , {
         "name": "Image Credit",
         "type": "image",
+        "view":true,
         "tableRef": "imageCredit",
         "size":"1000 × 664",
         "id": "imageCredit",

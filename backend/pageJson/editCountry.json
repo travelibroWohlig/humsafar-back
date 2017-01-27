@@ -37,7 +37,8 @@
         "id": "countryCode",
         "validation": ["", "trim", "unique"],
         "url": ""
-    }, {
+    }
+    "view":true,, {
         "name": "Capital",
         "type": "text",
         "tableRef": "capital",
@@ -72,6 +73,7 @@
     }, {
         "name": "Flag",
         "type": "image",
+        "view":true,
         "tableRef": "flag",
         "placeholder": "Enter Flag",
         "id": "flag",
@@ -80,7 +82,8 @@
     }, {
         "name": "Country Cover Photo",
         "type": "image",
-        "size":"1000 × 664",
+        "view":true,
+        "size":"1980 x 1080",
         "tableRef": "countryCoverPhoto",
         "placeholder": "Enter Country Cover Photo",
         "id": "countryCoverPhoto",
@@ -89,7 +92,8 @@
     }, {
         "name": "Country Itinerary Banner",
         "type": "image",
-        "size":"1000 × 664",
+        "view":true,
+        "size":"1083 x 1350",
         "tableRef": "countryItineraryBanner",
         "placeholder": "Enter Country Itinerary Banner",
         "id": "countryItineraryBanner",

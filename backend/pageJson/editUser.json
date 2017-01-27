@@ -39,6 +39,7 @@
         "disabled": true,
         "validation": ["required", "trim", "unique"],
         "url": ""
+        
     }, {
         "name": "Password",
         "type": "password",

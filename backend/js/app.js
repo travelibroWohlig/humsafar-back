@@ -105,6 +105,7 @@ firstapp.directive('dateModel', function ($filter, $timeout) {
 
 firstapp.filter('uploadpath', function () {
     return function (input, width, height, style) {
+        console.log(input);
         var other = "";
         if (width && width !== "") {
             other += "&width=" + width;
@@ -118,6 +119,7 @@ firstapp.filter('uploadpath', function () {
         if (input) {
             if (input.indexOf('https://') == -1) {
                 return imgpath + "?file=" + input + other;
+
             } else {
                 return input;
             }
@@ -152,8 +154,8 @@ firstapp.directive('uploadImage', function ($http, $filter, $timeout) {
             callback: "&ngCallback"
         },
         link: function ($scope, element, attrs) {
+            console.log($scope.model);
             $scope.showImage = function () {
-                console.log($scope.image);
             };
             $scope.check = true;
             if (!$scope.type) {
@@ -231,7 +233,6 @@ firstapp.directive('uploadImage', function ($http, $filter, $timeout) {
                     data = data.data;
                     $scope.uploadStatus = "uploaded";
                     if ($scope.isMultiple) {
-
                         if ($scope.inObject) {
                             $scope.model.push({
                                 "image": data[0]
@@ -243,12 +244,13 @@ firstapp.directive('uploadImage', function ($http, $filter, $timeout) {
                             $scope.model.push(data[0]);
                         }
                     } else {
-                        if (_.endsWith(data, ".pdf")) {
+                        if (_.endsWith(data.data[0], ".pdf")) {
                             $scope.type = "pdf";
                         } else {
-                            $scope.type = "img";
+                            $scope.type = "image";
                         }
-                        $scope.model = data[0];
+                        $scope.model = data.data[0];
+                        console.log($scope.model,'model means blob')
 
                     }
                     $timeout(function () {
@@ -689,7 +691,6 @@ firstapp.directive('dateForm', function () {
             ngModel: '=ngModel'
         },
         link: function ($scope, element, attrs) {
-            console.log($scope.ngModel);
         }
     };
 });
