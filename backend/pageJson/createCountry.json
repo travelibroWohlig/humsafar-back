@@ -76,6 +76,7 @@
         "tableRef": "flag",
         "placeholder": "Enter Flag",
         "id": "flag",
+          "size":"160 × 110",
         "validation": ["", "trim", ""],
         "url": ""
     }, {
