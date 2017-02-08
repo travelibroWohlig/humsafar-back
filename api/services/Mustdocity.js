@@ -37,6 +37,6 @@ schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
 module.exports = mongoose.model('Mustdocity', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema, 'mustdocity', 'mustdocity'));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema, 'Mustdocity', 'Mustdocity'));
 var model = {};
 module.exports = _.assign(module.exports, exports, model);
