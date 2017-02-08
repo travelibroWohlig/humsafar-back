@@ -21,8 +21,7 @@ var schema = new Schema({
     country: {
         type: Schema.Types.ObjectId,
         ref: "country",
-        index: true,
-        key: "mustDo"
+        index: true
     },
     mainPhoto: {
         type: String
@@ -38,6 +37,6 @@ schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
 module.exports = mongoose.model('Mustdocountry', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema,'Mustdocountry','Mustdocountry'));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
 var model = {};
 module.exports = _.assign(module.exports, exports, model);
