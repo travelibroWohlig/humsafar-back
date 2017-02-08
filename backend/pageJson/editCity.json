@@ -49,16 +49,20 @@
         "name": "City Cover Photo",
         "type": "image",
         "view":true,
+        "option": "single",
         "tableRef": "cityCoverPhoto",
         "placeholder": "Enter City Cover Photo",
+       "size":"1000 × 664",
         "id": "cityCoverPhoto",
         "validation": ["", "trim", ""],
         "url": ""
     }, {
         "name": "City OTG Cover Photo",
         "type": "image",
-        "view":true,
+         "view":true,
+        "option": "single",
         "tableRef": "cityOTGCoverPhoto",
+       "size":"1000 × 664",
         "placeholder": "Enter City OTG Cover Photo",
         "id": "cityOTGCoverPhoto",
         "validation": ["", "trim", ""],
@@ -66,8 +70,9 @@
     }, {
         "name": "City Display Photo",
         "type": "image",
-        "view":true,
+         "view":true,
         "tableRef": "cityDisplayPhoto",
+        "size":"1000 × 664",
         "placeholder": "Enter City Display Photo",
         "id": "cityDisplayPhoto",
         "validation": ["", "trim", ""],
@@ -75,7 +80,7 @@
     }, {
         "name": "City Itinerary Photo",
         "type": "image",
-        "view":true,
+         "view":true,
         "tableRef": "cityItineraryPhoto",
         "placeholder": "Enter City Itinerary Photo",
         "id": "cityItineraryPhoto",
@@ -105,7 +110,8 @@
         "id": "bestSeason",
         "validation": ["", "trim", ""],
         "url": ""
-    },{
+    },
+    {
         "name": "Country",
         "type": "selectFromTable",
         "tableRef": "country",
@@ -113,8 +119,9 @@
         "id": "country",
         "searchApi":"searchCall",
         "validation": ["", "trim", ""],
-        "url": "Country/search",
-        "dropDownType": "single"
+        "url": "country/search",
+        "dropDownType": "single",
+        "dropDown": ["true", "false"]
     }],
     "apiCall": {
         "url": "City/save",

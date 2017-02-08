@@ -79,6 +79,16 @@
         "validation": ["", "trim", ""],
         "url": ""
     }, {
+        "name": "Country Background Image",
+        "type": "image",
+        "view":true,
+        "size":"1980 x 1080",
+        "tableRef": "countryBackgroundImage",
+        "placeholder": "Enter Background Image",
+        "id": "countryBackgroundImage ",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
         "name": "Country Cover Photo",
         "type": "image",
         "view":true,

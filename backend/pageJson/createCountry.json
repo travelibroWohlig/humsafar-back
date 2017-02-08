@@ -5,7 +5,7 @@
   "description": "",
   "pageType": "create",
   "urlFields": ["Country"],
-    "fields": [{
+   "fields": [{
         "name": "Sequence No",
         "type": "number",
         "tableRef": "sequenceNo",
@@ -37,16 +37,14 @@
         "id": "countryCode",
         "validation": ["", "trim", "unique"],
         "url": ""
-    },{
+    }, {
         "name": "Capital",
-        "type": "selectFromTable",
+        "type": "text",
         "tableRef": "capital",
         "placeholder": "Enter Capital",
         "id": "capital",
-        "searchApi":"searchCall",
         "validation": ["", "trim", ""],
-        "url": "",
-        "dropDownType": "single"
+        "url": ""
     }, {
         "name": "Currency",
         "type": "text",
@@ -74,18 +72,28 @@
     }, {
         "name": "Flag",
         "type": "image",
-         "view":true,
+        "view":true,
         "tableRef": "flag",
         "placeholder": "Enter Flag",
         "id": "flag",
         "validation": ["", "trim", ""],
         "url": ""
     }, {
+        "name": "Country Background Image",
+        "type": "image",
+        "view":true,
+        "size":"1980 x 1080",
+        "tableRef": "countryBackgroundImage",
+        "placeholder": "Enter Background Image",
+        "id": "countryBackgroundImage ",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
         "name": "Country Cover Photo",
         "type": "image",
-         "view":true,
-        "tableRef": "countryCoverPhoto",
+        "view":true,
         "size":"1980 x 1080",
+        "tableRef": "countryCoverPhoto",
         "placeholder": "Enter Country Cover Photo",
         "id": "countryCoverPhoto",
         "validation": ["", "trim", ""],
@@ -94,6 +102,7 @@
         "name": "Country Itinerary Banner",
         "type": "image",
         "view":true,
+        "size":"1083 x 1350",
         "tableRef": "countryItineraryBanner",
         "placeholder": "Enter Country Itinerary Banner",
         "id": "countryItineraryBanner",
