@@ -58,7 +58,11 @@ module.exports.http = {
         myRequestLogger: function (req, res, next) {
             req.models = req.path.split("/");
             // console.log(req.models);
+            
             req.model = mongoose.models[_.upperFirst(req.models[2])];
+            if(_.upperFirst(req.models[2]) == "User") {
+                req.model = mongoose.models["UserAdmin"];
+            }
             req.modelName = _.upperFirst(req.models[2]);
 
 
