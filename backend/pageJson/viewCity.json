@@ -9,12 +9,7 @@
             "isSort": "",
             "tableRef": "name"
         }
-        // ,{
-        //     "name": "Is Popular",
-        //     "isSort": "",
-        //     "tableRef": "isPopulars",
-        //     "type": "checkbox"
-        // }
+ 
     ],
     "action": [{
         "name": "edit",
