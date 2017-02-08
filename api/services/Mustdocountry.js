@@ -20,7 +20,7 @@ var schema = new Schema({
     },
     country: {
         type: Schema.Types.ObjectId,
-        ref: "Country",
+        ref: "country",
         index: true,
         key: "mustDo"
     },
@@ -38,6 +38,6 @@ schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
 module.exports = mongoose.model('Mustdocountry', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema,'country','country'));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema,'mustdocountry','mustdocountry'));
 var model = {};
 module.exports = _.assign(module.exports, exports, model);

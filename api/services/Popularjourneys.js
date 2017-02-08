@@ -40,6 +40,6 @@ schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
 module.exports = mongoose.model('Popluarjourneys', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema, 'Popluarjourneys', 'Popluarjourneys'));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema, 'popluarjourneys', 'popluarjourneys'));
 var model = {};
 module.exports = _.assign(module.exports, exports, model);

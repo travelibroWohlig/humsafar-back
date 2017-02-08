@@ -21,7 +21,7 @@ var schema = new Schema({
     },
     city: {
         type: Schema.Types.ObjectId,
-        ref: "City",
+        ref: "city",
         index: true,
         key: "mustDo"
     },
@@ -37,6 +37,6 @@ schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
 module.exports = mongoose.model('MustdoCity', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema, 'MustdoCity', 'MustdoCity'));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema, 'mustdocity', 'mustdocity'));
 var model = {};
 module.exports = _.assign(module.exports, exports, model);
