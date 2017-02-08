@@ -83,6 +83,7 @@
         "type": "image",
          "view":true,
         "tableRef": "cityItineraryPhoto",
+         "size":"1083 x 1350",
         "placeholder": "Enter City Itinerary Photo",
         "id": "cityItineraryPhoto",
         "validation": ["", "trim", ""],
