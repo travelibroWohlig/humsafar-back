@@ -37,8 +37,7 @@
         "id": "countryCode",
         "validation": ["", "trim", "unique"],
         "url": ""
-    }
-    "view":true,, {
+    }, {
         "name": "Capital",
         "type": "text",
         "tableRef": "capital",

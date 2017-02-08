@@ -45,7 +45,7 @@
         "id": "capital",
         "searchApi":"searchCall",
         "validation": ["", "trim", ""],
-        "url": "City/search",
+        "url": "",
         "dropDownType": "single"
     }, {
         "name": "Currency",

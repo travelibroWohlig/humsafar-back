@@ -30,6 +30,7 @@ var schema = new Schema({
     weather: String,
     temperature: String,
     flag: String,
+    countryBackgroundImage: String,
     countryCoverPhoto: String,
     countryItineraryBanner: String,
     featuredCities: [{
