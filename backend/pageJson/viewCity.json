@@ -5,10 +5,17 @@
     "sendIdWithCreate": true,
     "urlFields": ["_id"],
     "fields": [{
-        "name": "Name",
-        "isSort": "",
-        "tableRef": "name"
-    }],
+            "name": "Name",
+            "isSort": "",
+            "tableRef": "name"
+        },
+        {
+            "name": "Is Popular",
+            "isSort": "",
+            "tableRef": "isPopulars",
+            "type": "checkbox"
+        }
+    ],
     "action": [{
         "name": "edit",
         "icon": "fa-pencil",

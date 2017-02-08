@@ -30,16 +30,16 @@ var schema = new Schema({
     startTime: {
         type: Date
     },
-   urlSlug:{
-      type:String 
-   }
+    urlSlug: {
+        type: String
+    }
 });
 
 schema.plugin(deepPopulate, {});
 schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
-module.exports = mongoose.model('Popluarjourneys', schema);
+module.exports = mongoose.model('Journey', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema, 'popluarjourneys', 'popluarjourneys'));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
 var model = {};
 module.exports = _.assign(module.exports, exports, model);

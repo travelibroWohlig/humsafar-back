@@ -19,68 +19,68 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
     $stateProvider
 
         .state('dashboard', {
-        url: "/dashboard",
-        templateUrl: "views/template.html",
-        controller: 'DashboardCtrl',
-    })
+            url: "/dashboard",
+            templateUrl: "views/template.html",
+            controller: 'DashboardCtrl',
+        })
 
-    .state('login', {
-        url: "/login",
-        templateUrl: "views/login.html",
-        controller: 'LoginCtrl'
-    })
+        .state('login', {
+            url: "/login",
+            templateUrl: "views/login.html",
+            controller: 'LoginCtrl'
+        })
 
-    .state('page', {
-        url: "/page/:id/{page:.*}/{keyword:.*}",
-        templateUrl: "views/template.html",
-        controller: 'PageJsonCtrl'
-    })
+        .state('page', {
+            url: "/page/:id/{page:.*}/{keyword:.*}",
+            templateUrl: "views/template.html",
+            controller: 'PageJsonCtrl'
+        })
 
-    .state('loginapp', {
-        url: "/login/:id",
-        templateUrl: "views/login.html",
-        controller: 'LoginCtrl'
-    })
+        .state('loginapp', {
+            url: "/login/:id",
+            templateUrl: "views/login.html",
+            controller: 'LoginCtrl'
+        })
 
-    .state('country-list', {
-        url: "/country-list/{page:.*}/{keyword:.*}",
-        templateUrl: "views/template.html",
-        controller: 'CountryCtrl',
-        params: {
-            page: "1",
-            keyword: ""
-        }
-    })
+        .state('country-list', {
+            url: "/country-list/{page:.*}/{keyword:.*}",
+            templateUrl: "views/template.html",
+            controller: 'CountryCtrl',
+            params: {
+                page: "1",
+                keyword: ""
+            }
+        })
 
-    .state('createcountry', {
-        url: "/country-create",
-        templateUrl: "views/template.html",
-        controller: 'CreateCountryCtrl'
-    })
+        .state('createcountry', {
+            url: "/country-create",
+            templateUrl: "views/template.html",
+            controller: 'CreateCountryCtrl'
+        })
 
-    .state('editcountry', {
-        url: "/country-edit/:id",
-        templateUrl: "views/template.html",
-        controller: 'EditCountryCtrl'
-    })
+        .state('editcountry', {
+            url: "/country-edit/:id",
+            templateUrl: "views/template.html",
+            controller: 'EditCountryCtrl'
+        })
 
-    .state('schema-creator', {
-        url: "/schema-creator",
-        templateUrl: "views/template.html",
-        controller: 'SchemaCreatorCtrl'
-    })
+        .state('schema-creator', {
+            url: "/schema-creator",
+            templateUrl: "views/template.html",
+            controller: 'SchemaCreatorCtrl'
+        })
 
-    .state('excel-upload', {
-        url: "/excel-upload/:model",
-        templateUrl: "views/template.html",
-        controller: 'ExcelUploadCtrl'
-    })
+        .state('excel-upload', {
+            url: "/excel-upload/:model",
+            templateUrl: "views/template.html",
+            controller: 'ExcelUploadCtrl'
+        })
 
-    .state('jagz', {
-        url: "/jagz",
-        templateUrl: "views/jagz.html",
-        controller: 'JagzCtrl'
-    });
+        .state('jagz', {
+            url: "/jagz",
+            templateUrl: "views/jagz.html",
+            controller: 'JagzCtrl'
+        });
 
     $urlRouterProvider.otherwise("/dashboard");
     $locationProvider.html5Mode(isproduction);
@@ -155,8 +155,7 @@ firstapp.directive('uploadImage', function ($http, $filter, $timeout) {
         },
         link: function ($scope, element, attrs) {
             console.log($scope.model);
-            $scope.showImage = function () {
-            };
+            $scope.showImage = function () {};
             $scope.check = true;
             if (!$scope.type) {
                 $scope.type = "image";
@@ -250,7 +249,7 @@ firstapp.directive('uploadImage', function ($http, $filter, $timeout) {
                             $scope.type = "image";
                         }
                         $scope.model = data.data[0];
-                        console.log($scope.model,'model means blob')
+                        console.log($scope.model, 'model means blob')
 
                     }
                     $timeout(function () {
@@ -661,6 +660,9 @@ firstapp.directive('viewField', function ($http, $filter) {
                 $scope.type.type = "text";
             }
             $scope.form = {};
+            $scope.change = function () {
+                console.log("thisis nice");
+            };
             $scope.objectDepth = function () {
                 if (_.isObjectLike($scope.storeObj)) {
                     if ($scope.storeValue[$scope.storeObj.field]) {
@@ -690,8 +692,7 @@ firstapp.directive('dateForm', function () {
         scope: {
             ngModel: '=ngModel'
         },
-        link: function ($scope, element, attrs) {
-        }
+        link: function ($scope, element, attrs) {}
     };
 });
 
