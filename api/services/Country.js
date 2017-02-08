@@ -60,8 +60,8 @@ var schema = new Schema({
 schema.plugin(deepPopulate, {});
 schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
-module.exports = mongoose.model('Countries', schema);
+module.exports = mongoose.model('Country', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema, 'Country', 'Country'));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema, 'country', 'country'));
 var model = {};
 module.exports = _.assign(module.exports, exports, model);
