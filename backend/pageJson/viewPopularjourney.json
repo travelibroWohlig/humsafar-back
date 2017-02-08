@@ -7,12 +7,14 @@
       "name": "Name",
       "isSort": "",
       "tableRef": "name"
-    }, {
-      "name": "Is Popular",
-      "isSort": "",
-      "tableRef": "isPopular"
-    },{
-      "name": "",
+    },
+        {
+            "name": "Is Popular",
+            "isSort": "",
+            "tableRef": "isPopulars",
+            "type": "checkbox"
+        },{
+      "name": "Link",
       "isSort": "",
       "tableRef": "urlSlug"
       }],
@@ -29,7 +31,7 @@
         }
     }],
     "apiCall": {
-        "url": "Popularjourneys/search",
+        "url": "Journey/search",
         "params": "_id"
     }
 }

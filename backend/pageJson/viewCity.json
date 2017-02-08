@@ -8,9 +8,7 @@
             "name": "Name",
             "isSort": "",
             "tableRef": "name"
-        }
- 
-    ],
+        }],
     "action": [{
         "name": "edit",
         "icon": "fa-pencil",
