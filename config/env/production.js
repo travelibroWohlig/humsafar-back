@@ -27,7 +27,7 @@ module.exports = {
 
   port: 83,
   realHost: "http://travelibrobackend.wohlig.com",
-  emails: ["chintan@wohlig.com", "jagruti@wohlig.com", "tushar@wohlig.com", "chirag@wohlig.com", "harsh@wohlig.com", "sohan@wohlig.com"]
+  emails: ["chintan@wohlig.com", "jagruti@wohlig.com", "tushar@wohlig.com", "chirag@wohlig.com", "harsh@wohlig.com", "sohan@wohlig.com", "mshah@travelibro.com"]
 
   /***************************************************************************
    * Set the log level in production environment to "silent"                 *
