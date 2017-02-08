@@ -22,8 +22,7 @@ var schema = new Schema({
     city: {
         type: Schema.Types.ObjectId,
         ref: "city",
-        index: true,
-        key: "mustDo"
+        index: true
     },
     mainPhoto: {
         type: String
