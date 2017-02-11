@@ -41,5 +41,24 @@ schema.plugin(timestamps);
 module.exports = mongoose.model('Journey', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
-var model = {};
+var model = {
+    editData: function (data, callback) {
+        Journey.findOneAndUpdate({
+            _id: data._id
+        }, {
+            $set: {
+                isPopular: true
+            }
+        }).lean().exec(function (err, updated) {
+            if (err) {
+                console.log(err);
+                callback(err, null);
+            } else if (!_.isEmpty(updated)) {
+                callback(null, "Updated");
+            } else {
+                callback("Journey not found", null);
+            }
+        });
+    },
+};
 module.exports = _.assign(module.exports, exports, model);

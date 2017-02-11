@@ -163,7 +163,41 @@ var model = {
             data.googleAccessToken = accessToken;
             data.save(function () {});
         });
+    },
+    editData: function (data, callback) {
+        User.findOneAndUpdate({
+            _id: data._id
+        }, {
+            $set: {
+                isPopular: true
+            }
+        }).lean().exec(function (err, updated) {
+            if (err) {
+                console.log(err);
+                callback(err, null);
+            } else if (!_.isEmpty(updated)) {
+                callback(null, "Updated");
+            } else {
+                callback("User not found", null);
+            }
+        });
+    },
+    getBloggers: function (data, callback) {
+        data.pagenumber = parseInt(data.pagenumber);
+        User.find({
+            isBlogger: true
+        }).sort({
+            name: -1
+        }).skip((data.pagenumber - 1) * 25).limit(25).lean().exec(function (err, foundUser) {
+            if (err) {
+                console.log(err);
+                callback(err, null);
+            } else if (foundUser && foundUser.length > 0) {
+                callback(null, "Updated");
+            } else {
+                callback(null, []);
+            }
+        });
     }
-
 };
 module.exports = _.assign(module.exports, exports, model);
