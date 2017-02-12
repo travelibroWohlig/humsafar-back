@@ -16,6 +16,23 @@ var controller = {
                 data: "Invalid Request"
             });
         }
+    },
+    getJourney: function (req, res) {
+        if (req.body) {
+            if (req.body.pagenumber) {
+                Journey.getJourney(req.body, res.callback);
+            } else {
+                res.json({
+                    value: false,
+                    data: "Invalid Params"
+                });
+            }
+        } else {
+            res.json({
+                value: false,
+                data: "Invalid Request"
+            });
+        }
     }
 };
 module.exports = _.assign(module.exports, controller);

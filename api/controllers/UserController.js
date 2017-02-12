@@ -75,23 +75,6 @@ var controller = {
             res.callback("Access Denied for Database Backup");
         }
     },
-    editData: function (req, res) {
-        if (req.body) {
-            if (mongoose.Types.ObjectId.isValid(req.body._id)) {
-                User.editData(req.body, res.callback);
-            } else {
-                res.json({
-                    value: false,
-                    data: "Invalid Params"
-                });
-            }
-        } else {
-            res.json({
-                value: false,
-                data: "Invalid Request"
-            });
-        }
-    },
     getBloggers: function (req, res) {
         if (req.body) {
             if (req.body.pagenumber) {
@@ -109,5 +92,22 @@ var controller = {
             });
         }
     },
+    editData: function (req, res) {
+        if (req.body) {
+            if (mongoose.Types.ObjectId.isValid(req.body._id)) {
+                User.editData(req.body, res.callback);
+            } else {
+                res.json({
+                    value: false,
+                    data: "Invalid Params"
+                });
+            }
+        } else {
+            res.json({
+                value: false,
+                data: "Invalid Request"
+            });
+        }
+    }
 };
 module.exports = _.assign(module.exports, controller);
