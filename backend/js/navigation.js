@@ -30,7 +30,7 @@ var navigationservice = angular.module('navigationservice', [])
     },{
         name: "Report Problem",
         classis: "active",
-        sref: "#!/page/viewReportProblems//",
+        sref: "#!/page/viewReportProblem//",
         icon: "register"
          },
          {
