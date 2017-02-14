@@ -1,0 +1,43 @@
+{
+  "title": "Report Problem",
+  "pageType": "view",
+  "sendIdWithCreate": true,
+  "urlFields": ["_id"],
+  "fields": [{
+      "name": "Sequence Number",
+      "isSort": "",
+      "tableRef": "sequenceNo"
+    },{
+      "name": "User ID",
+      "isSort": "",
+      "tableRef": "userId"
+    },{
+      "name": "Problem",
+      "isSort": "",
+      "tableRef": "problem"
+    }],
+    "action": [ {
+        "name": "delete",
+        "icon": "fa-trash",
+        "buttonClass": "btn-danger",
+        "type": "apiCallConfirm",
+        "title": "Delete Report Problem",
+        "content": "Are you sure you want to delete Report Problem?",
+        "api": "ReportProblems/delete",
+        "fieldsToSend": {
+            "name": "_id"
+        }
+    }],
+//  "button": [{
+//         "name": "Create",
+//         "icon": "plus",
+//         "class": "btn-success",
+//         "type": "page",
+//         "action": "createReportProblems"
+//     }],
+    "apiCall": {
+        "url": "ReportProblems/search",
+        "params": "_id"
+    }
+}
+

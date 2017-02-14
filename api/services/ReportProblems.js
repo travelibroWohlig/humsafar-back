@@ -9,34 +9,23 @@ require('mongoose-middleware').initialize(mongoose);
 var Schema = mongoose.Schema;
 var schema = new Schema({
     railsId: {
-        type: Number
+    type: Number
+    },
+    userId: {
+    type: Number
     },
     sequenceNo: Number,
-    name: {
+    problem: {
         type: String,
         required: true
-    },
-    
-    description: {
-        type: String
-    },
-    city: {
-        type: Schema.Types.ObjectId,
-        ref: "city",
-        index: true
-    },
-    mainPhoto: {
-        type: String
-    },
-    imageCredit: {
-        type: String
     }
 });
+
 schema.plugin(deepPopulate, {});
 schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
-module.exports = mongoose.model('Mustdocity', schema);
+module.exports = mongoose.model('ReportProblems', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema, 'Mustdocity', 'Mustdocity'));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
 var model = {};
 module.exports = _.assign(module.exports, exports, model);

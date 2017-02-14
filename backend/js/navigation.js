@@ -27,20 +27,25 @@ var navigationservice = angular.module('navigationservice', [])
         classis: "active",
         sref: "#!/page/viewMustdocountry//",
         icon: "location"
-    },
-    
+    },{
+        name: "Report Problem",
+        classis: "active",
+        sref: "#!/page/viewReportProblems//",
+        icon: "register"
+         },
+         {
+        name: "MustDo City",
+        classis: "active",
+        sref: "#!/page/viewMustdocity//",
+        icon: "location"
+    }
     // {
     //     name: "Popular Journeys",
     //     classis: "active",
     //     sref: "#!/page/viewPopularjourneys//",
     //     icon: "location"
     // },
-    {
-        name: "MustDo City",
-        classis: "active",
-        sref: "#!/page/viewMustdocity//",
-        icon: "location"
-    }];
+    ];
 
     return {
         getnav: function () {

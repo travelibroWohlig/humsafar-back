@@ -1,0 +1,60 @@
+{
+   "title": "Create Report Problem",
+    "name": "ReportProblem",
+    "jsonPage": "viewReportProblem",
+    "description": "",
+    "pageType": "edit",
+    "fields": [{
+        "name": "Sequence No",
+        "type": "number",
+        "tableRef": "sequenceNo",
+        "placeholder": "Sequence No",
+        "id": "sequenceNo",
+        "validation": ["", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "User ID",
+        "type": "number",
+        "tableRef": "userId",
+        "placeholder": "User Id",
+        "id": "userId",
+        "validation": ["", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Problem",
+        "type": "text",
+        "tableRef": "problem",
+        "placeholder": "Enter Problem",
+        "id": "problem",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }],
+         "action": [{
+        "name": "submit",
+        "action": "submitReportProblem",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewReportProblem"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewReportProblem"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "ReportProblems/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "ReportProblems/getOne",
+        "params": "_id"
+    }
+
+}
