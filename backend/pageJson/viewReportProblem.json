@@ -10,7 +10,7 @@
     },{
       "name": "User ID",
       "isSort": "",
-      "tableRef": "userId"
+      "tableRef": "user"
     },{
       "name": "Problem",
       "isSort": "",

@@ -11,7 +11,7 @@ var schema = new Schema({
     railsId: {
     type: Number
     },
-    userId: {
+    user: {
     type: Schema.Types.ObjectId,
     ref:"User",
     index:true
