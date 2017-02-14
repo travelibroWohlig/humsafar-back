@@ -27,18 +27,18 @@ var navigationservice = angular.module('navigationservice', [])
         classis: "active",
         sref: "#!/page/viewMustdocountry//",
         icon: "location"
-    },{
-        name: "Report Problem",
-        classis: "active",
-        sref: "#!/page/viewReportProblem//",
-        icon: "register"
-         },
+    },
          {
         name: "MustDo City",
         classis: "active",
         sref: "#!/page/viewMustdocity//",
         icon: "location"
-    }
+    },{
+        name: "Report Problem",
+        classis: "active",
+        sref: "#!/page/viewReportProblem//",
+        icon: "register"
+         }
     // {
     //     name: "Popular Journeys",
     //     classis: "active",
