@@ -28,14 +28,6 @@
             "name": "_id"
         }
     }],
-    
-//  "button": [{
-//         "name": "Create",
-//         "icon": "plus",
-//         "class": "btn-success",
-//         "type": "page",
-//         "action": "createReportProblems"
-//     }],
     "apiCall": {
         "url": "ReportProblems/search",
         "params": "_id"
