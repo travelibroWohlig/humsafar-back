@@ -12,7 +12,9 @@ var schema = new Schema({
     type: Number
     },
     userId: {
-    type: Number
+    type: Schema.Types.ObjectId,
+    ref:"User",
+    index:true
     },
     sequenceNo: Number,
     problem: {
