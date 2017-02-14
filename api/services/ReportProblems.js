@@ -16,7 +16,6 @@ var schema = new Schema({
     ref:"User",
     index:true
     },
-    sequenceNo: Number,
     problem: {
         type: String,
         required: true
