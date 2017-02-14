@@ -1,5 +1,5 @@
 {
-  "title": "Report Problem",
+  "title": "Report a Problem",
   "pageType": "view",
   "sendIdWithCreate": true,
   "urlFields": ["_id"],
