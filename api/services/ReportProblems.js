@@ -20,7 +20,8 @@ var schema = new Schema({
     problem: {
         type: String,
         required: true
-    }
+    },
+    device:Schema.Types.Mixed
 });
 
 schema.plugin(deepPopulate, {});
