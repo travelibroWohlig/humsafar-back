@@ -38,14 +38,12 @@ var navigationservice = angular.module('navigationservice', [])
         classis: "active",
         sref: "#!/page/viewReportProblem//",
         icon: "register"
-         }
-    // {
-    //     name: "Popular Journeys",
-    //     classis: "active",
-    //     sref: "#!/page/viewPopularjourneys//",
-    //     icon: "location"
-    // },
-    ];
+         },{
+        name: "Popular Journeys",
+        classis: "active",
+        sref: "#!/page/viewJourneys//",
+        icon: "plane"
+    }];
 
     return {
         getnav: function () {

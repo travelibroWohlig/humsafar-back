@@ -18,20 +18,20 @@
       "isSort": "",
       "tableRef": "urlSlug"
       }],
-    "action": [ {
+    "action": [{
         "name": "delete",
         "icon": "fa-trash",
         "buttonClass": "btn-danger",
         "type": "apiCallConfirm",
         "title": "Delete Popular Journey",
         "content": "Are you sure you want to delete Popular Journey?",
-        "api": "Popularjourneys/delete",
+        "api": "Journeys/delete",
         "fieldsToSend": {
             "name": "_id"
         }
     }],
     "apiCall": {
-        "url": "Journey/search",
+        "url": "Journeys/search",
         "params": "_id"
     }
 }

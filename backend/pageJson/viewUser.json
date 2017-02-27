@@ -12,7 +12,16 @@
         "name": "Email",
         "isSort": "",
         "tableRef": "email"
-    }, {
+    },{
+            "name": "Blogger",
+            "isSort": "",
+            "tableRef": "blogger"
+        },{
+            "name": "Is Popular Blogger",
+            "isSort": "",
+            "tableRef": "isPopulars",
+            "type": "checkbox"
+        }, {
         "name": "Mobile",
         "isSort": "",
         "tableRef": "mobile"
