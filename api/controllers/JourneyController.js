@@ -1,6 +1,6 @@
 module.exports = _.cloneDeep(require("sails-wohlig-controller"));
 var controller = {
-    editData: function (req, res) {
+    editData: function(req, res) {
         if (req.body) {
             if (mongoose.Types.ObjectId.isValid(req.body._id)) {
                 Journey.editData(req.body, res.callback);
@@ -17,9 +17,9 @@ var controller = {
             });
         }
     },
-    getJourney: function (req, res) {
+    getJourney: function(req, res) {
         if (req.body) {
-            if (req.body.pagenumber) {
+            if (req.body.page) {
                 Journey.getJourney(req.body, res.callback);
             } else {
                 res.json({

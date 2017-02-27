@@ -42,8 +42,13 @@ module.exports = mongoose.model('Journey', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
 var model = {
-    getJourney: function (data, callback) {
-        data.pagenumber = parseInt(data.pagenumber);
+    getJourney: function(data, callback) {
+        data.page = parseInt(data.page);
+        var respo = {};
+        respo.results = [];
+        respo.options = {};
+        respo.options.count = 0;
+        respo.total = 0;
         var sortObj = {
             postCount: -1,
             likeCount: -1,
@@ -61,81 +66,114 @@ var model = {
                 delete sortObj.createdAt;
             }
         }
-        Journey.aggregate([{
-            $match: {
-                "post.0": {
-                    $exists: true
-                },
-                status: true
-            }
-        }, {
-            $project: {
-                _id: 1,
-                name: 1,
-                user: 1,
-                urlSlug: 1,
-                likeCount: {
-                    $size: {
-                        "$ifNull": ["$like", []]
+        async.parallel([
+            function(callback) {
+                Journey.aggregate([{
+                    $match: {
+                        "post.0": {
+                            $exists: true
+                        },
+                        status: true
                     }
-                },
-                postCount: {
-                    $size: {
-                        "$ifNull": ["$post", []]
+                }, {
+                    $project: {
+                        _id: 1,
+                        name: 1,
+                        user: 1,
+                        urlSlug: 1,
+                        likeCount: {
+                            $size: {
+                                "$ifNull": ["$like", []]
+                            }
+                        },
+                        postCount: {
+                            $size: {
+                                "$ifNull": ["$post", []]
+                            }
+                        },
+                        startLocation: 1,
+                        startTime: 1,
+                        createdAt: 1
                     }
-                },
-                startLocation: 1,
-                startTime: 1,
-                createdAt: 1
+                }, {
+                    $sort: sortObj
+                }, {
+                    $skip: (data.page - 1) * 25
+                }, {
+                    $limit: 25
+                }, {
+                    $lookup: {
+                        from: "users",
+                        localField: "user",
+                        foreignField: "_id",
+                        as: "user"
+                    }
+                }, {
+                    $unwind: "$user"
+                }, {
+                    $project: {
+                        _id: 1,
+                        name: 1,
+                        urlSlug: 1,
+                        "user._id": 1,
+                        "user.name": 1,
+                        "user.urlSlug": 1,
+                        likeCount: 1,
+                        postCount: 1,
+                        startLocation: 1,
+                        startTime: 1,
+                        createdAt: 1
+                    }
+                }]).exec(function(err, foundJourney) {
+                    if (err) {
+                        console.log(err);
+                        callback(err, null);
+                    } else if (foundJourney && foundJourney.length > 0) {
+                        respo.results = foundJourney;
+                        respo.options.count = foundJourney.length;
+                        callback(null, "Done");
+                    } else {
+                        respo.options.count = foundJourney.length;
+                        callback(null, "Done");
+                    }
+                });
+            },
+            function(callback) {
+                Journey.count({
+                    "post.0": {
+                        $exists: true
+                    },
+                    status: true
+                }).lean().exec(function(err, foundJourney) {
+                    if (err) {
+                        console.log(err);
+                        callback(err, null);
+                    } else if (foundJourney && foundJourney.length > 0) {
+                        respo.total = foundJourney;
+                        callback(null, "Done");
+                    } else {
+                        respo.total = 0;
+                        callback(null, "Done");
+                    }
+                });
             }
-        }, {
-            $sort: sortObj
-        }, {
-            $skip: (data.pagenumber - 1) * 25
-        }, {
-            $limit: 25
-        }, {
-            $lookup: {
-                from: "users",
-                localField: "user",
-                foreignField: "_id",
-                as: "user"
-            }
-        }, {
-            $unwind: "$user"
-        }, {
-            $project: {
-                _id: 1,
-                name: 1,
-                urlSlug: 1,
-                "user._id": 1,
-                "user.name": 1,
-                "user.urlSlug": 1,
-                likeCount: 1,
-                postCount: 1,
-                startLocation: 1,
-                startTime: 1,
-                createdAt: 1
-            }
-        }]).exec(function (err, foundJourney) {
+        ], function(err, done) {
             if (err) {
                 console.log(err);
                 callback(err, null);
-            } else if (foundJourney && foundJourney.length > 0) {
-                callback(null, foundJourney);
             } else {
-                callback(null, []);
+                callback(null, respo);
             }
         });
     },
-    editData: function (data, callback) {
+    editData: function(data, callback) {
         Journey.findOneAndUpdate({
             _id: data._id
         }, {
             $set: {
                 isPopular: true
             }
-        }).lean().exec(function (err, updated) {
+        }).lean().exec(function(err, updated) {
             if (err) {
                 console.log(err);
                 callback(err, null);
