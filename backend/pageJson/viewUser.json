@@ -8,10 +8,6 @@
         "name": "Name",
         "isSort": "",
         "tableRef": "name"
-    }, {
-        "name": "Email",
-        "isSort": "",
-        "tableRef": "email"
     },{
             "name": "Blogger",
             "isSort": "",
@@ -21,11 +17,7 @@
             "isSort": "",
             "tableRef": "isPopulars",
             "type": "checkbox"
-        }, {
-        "name": "Mobile",
-        "isSort": "",
-        "tableRef": "mobile"
-    }],
+        }],
     "action": [{
         "name": "edit",
         "icon": "fa-pencil",
@@ -73,7 +65,7 @@
         }
     ],
     "apiCall": {
-        "url": "User/search",
+        "url": "User/getBloggers",
         "params": "_id"
     }
 }

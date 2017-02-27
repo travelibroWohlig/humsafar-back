@@ -7,8 +7,7 @@
       "name": "Name",
       "isSort": "",
       "tableRef": "name"
-    },
-        {
+    },{
             "name": "Is Popular",
             "isSort": "",
             "tableRef": "isPopulars",
@@ -25,13 +24,13 @@
         "type": "apiCallConfirm",
         "title": "Delete Popular Journey",
         "content": "Are you sure you want to delete Popular Journey?",
-        "api": "Journeys/delete",
+        "api": "Journey/delete",
         "fieldsToSend": {
             "name": "_id"
         }
     }],
     "apiCall": {
-        "url": "Journeys/search",
+        "url": "Journey/search",
         "params": "_id"
     }
 }

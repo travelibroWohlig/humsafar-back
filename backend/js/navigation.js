@@ -41,7 +41,7 @@ var navigationservice = angular.module('navigationservice', [])
          },{
         name: "Popular Journeys",
         classis: "active",
-        sref: "#!/page/viewJourneys//",
+        sref: "#!/page/viewJourney//",
         icon: "plane"
     }];
 

@@ -56,6 +56,13 @@ var schema = new Schema({
         type: [String],
         index: true
     },
+    isPopular: {
+        type: Boolean,
+        default: false
+    },
+    urlSlug: {
+        type: String
+    },
     googleAccessToken: String,
     googleRefreshToken: String,
     oauthLogin: {
