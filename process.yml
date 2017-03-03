@@ -2,4 +2,3 @@ apps:
   - script: "app.js"
     name: "Travelibro Backend - 83"
     watch: true
-    args: "--prod"
