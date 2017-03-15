@@ -16,7 +16,7 @@
         "name": "Is Popular Blogger",
         "isSort": "",
         "tableRef": "isPopulars",
-        "type": "checkbox"
+        "type": "toggle"
     }],
     "action": [{
         "name": "edit",
