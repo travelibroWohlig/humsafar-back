@@ -228,7 +228,8 @@ var model = {
             _id: data._id
         }, {
             $set: {
-                isPopular: true
+                isPopular: data.status,
+                popularRank: data.popularRank
             }
         }).lean().exec(function(err, updated) {
             if (err) {
