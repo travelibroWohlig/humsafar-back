@@ -60,6 +60,10 @@ var schema = new Schema({
         type: Boolean,
         default: false
     },
+    isBlogger: {
+        type: Boolean,
+        default: false
+    },
     popularRank: Number,
     urlSlug: {
         type: String
