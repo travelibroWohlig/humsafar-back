@@ -16,7 +16,8 @@
         "name": "Is Popular Blogger",
         "isSort": "",
         "tableRef": "isPopulars",
-        "type": "toggle"
+        "type": "toggle",
+        "url": "user/editData"
     }],
     "action": [{
         "name": "edit",
