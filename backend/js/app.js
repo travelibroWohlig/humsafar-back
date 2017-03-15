@@ -687,7 +687,7 @@ firstapp.directive('viewField', function ($http, $filter, NavigationService) {
             $scope.template = "views/viewField/" + $scope.type.type + ".html";
             $scope.changeValueToggle = function (value, type) {
 
-                if ($scope.value.isPopular === true) {
+                if ($scope.value.isPopular === true && !$scope.value.popularRank) {
                     $scope.value.popularRank = 50;
                 }
 

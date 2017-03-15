@@ -4,6 +4,6 @@
         </toggle-switch>
     </div>
     <div class="col-md-4" ng-show="value.isPopular">
-        <input type="number" class="form-control" placeholder="Ranking" ng-model="value.popularRank">
+        <input type="number" class="form-control" placeholder="Ranking" ng-change="changeValueToggle(value,type)" ng-model="value.popularRank">
     </div>
 </div>

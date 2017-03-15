@@ -27,6 +27,7 @@ var schema = new Schema({
         type: Boolean,
         default: false
     },
+    popularRank: Number,
     startTime: {
         type: Date
     },
@@ -42,7 +43,7 @@ module.exports = mongoose.model('Journey', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
 var model = {
-    getJourney: function(data, callback) {
+    getJourney: function (data, callback) {
         data.page = parseInt(data.page);
         var respo = {};
         respo.results = [];
@@ -67,7 +68,7 @@ var model = {
             }
         }
         async.parallel([
-            function(callback) {
+            function (callback) {
                 Journey.aggregate([{
                     $match: {
                         "post.0": {
@@ -124,7 +125,7 @@ var model = {
                         startTime: 1,
                         createdAt: 1
                     }
-                }]).exec(function(err, foundJourney) {
+                }]).exec(function (err, foundJourney) {
                     if (err) {
                         console.log(err);
                         callback(err, null);
@@ -138,13 +139,13 @@ var model = {
                     }
                 });
             },
-            function(callback) {
+            function (callback) {
                 Journey.count({
                     "post.0": {
                         $exists: true
                     },
                     status: true
-                }).lean().exec(function(err, foundJourney) {
+                }).lean().exec(function (err, foundJourney) {
                     if (err) {
                         console.log(err);
                         callback(err, null);
@@ -157,7 +158,7 @@ var model = {
                     }
                 });
             }
-        ], function(err, done) {
+        ], function (err, done) {
             if (err) {
                 console.log(err);
                 callback(err, null);
@@ -166,7 +167,7 @@ var model = {
             }
         });
     },
-    editData: function(data, callback) {
+    editData: function (data, callback) {
         Journey.findOneAndUpdate({
             _id: data._id
         }, {
@@ -174,7 +175,7 @@ var model = {
                 isPopular: data.status,
                 popularRank: data.popularRank
             }
-        }).lean().exec(function(err, updated) {
+        }).lean().exec(function (err, updated) {
             if (err) {
                 console.log(err);
                 callback(err, null);
