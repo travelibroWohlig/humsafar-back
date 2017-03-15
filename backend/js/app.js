@@ -10,7 +10,8 @@ var firstapp = angular.module('firstapp', [
     'imageupload',
     "ngMap",
     "internationalPhoneNumber",
-    "jsonservicemod"
+    "jsonservicemod",
+    'toggle-switch'
 ]);
 
 firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
@@ -648,7 +649,7 @@ firstapp.config(function ($translateProvider) {
     $translateProvider.preferredLanguage('en');
 });
 
-firstapp.directive('viewField', function ($http, $filter) {
+firstapp.directive('viewField', function ($http, $filter, NavigationService) {
     return {
         templateUrl: 'views/directive/viewField.html',
         scope: {
@@ -684,6 +685,11 @@ firstapp.directive('viewField', function ($http, $filter) {
             }
 
             $scope.template = "views/viewField/" + $scope.type.type + ".html";
+            $scope.changeValueToggle = function (value, type) {
+                console.log(value);
+                console.log(type);
+                NavigationService.makePopular(type.url, value._id, value.isPopular);
+            };
         }
     };
 });

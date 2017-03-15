@@ -1,22 +1,23 @@
 {
-  "title": "Popular Journeys",
-  "pageType": "view",
-  "sendIdWithCreate": true,
-  "urlFields": ["_id"],
-  "fields": [{
-      "name": "Name",
-      "isSort": "",
-      "tableRef": "name"
-    },{
-            "name": "Is Popular",
-            "isSort": "",
-            "tableRef": "isPopulars",
-            "type": "checkbox"
-        },{
-      "name": "Link",
-      "isSort": "",
-      "tableRef": "urlSlug"
-      }],
+    "title": "Popular Journeys",
+    "pageType": "view",
+    "sendIdWithCreate": true,
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Name",
+        "isSort": "",
+        "tableRef": "name"
+    }, {
+        "name": "Is Popular",
+        "isSort": "",
+        "tableRef": "isPopulars",
+        "type": "toggle",
+        "url": "journey/editData"
+    }, {
+        "name": "Link",
+        "isSort": "",
+        "tableRef": "urlSlug"
+    }],
     "action": [{
         "name": "delete",
         "icon": "fa-trash",

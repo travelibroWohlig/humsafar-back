@@ -74,9 +74,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $interval(function () {
             count++;
-            console.log("Version 1.1");
             generateCircle();
         }, 5000);
+
+
 
     })
 
