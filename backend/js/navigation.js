@@ -97,10 +97,11 @@ var navigationservice = angular.module('navigationservice', [])
                     callback(data);
                 });
             },
-            makePopular: function (url, id, status, callback) {
+            makePopular: function (url, id, status, rank, callback) {
                 $http.post(adminurl + url, {
                     _id: id,
-                    status: status
+                    status: status,
+                    popularRank: rank
                 }).then(function (data) {
                     data = data.data;
                     callback(data);

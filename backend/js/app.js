@@ -688,7 +688,10 @@ firstapp.directive('viewField', function ($http, $filter, NavigationService) {
             $scope.changeValueToggle = function (value, type) {
                 console.log(value);
                 console.log(type);
-                NavigationService.makePopular(type.url, value._id, value.isPopular);
+                if (value.isPopular === true) {
+                    value.popularRank = 50;
+                }
+                NavigationService.makePopular(type.url, value._id, value.isPopular, value.popularRank, function () {});
             };
         }
     };
