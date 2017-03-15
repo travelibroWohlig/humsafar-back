@@ -14,7 +14,7 @@ var schema = new Schema({
         type: Date,
         excel: {
             name: "Birthday",
-            modify: function (val, data) {
+            modify: function(val, data) {
                 return moment(val).format("MMM DD YYYY");
             }
         }
@@ -26,12 +26,12 @@ var schema = new Schema({
             name: "Photo Val"
         }, {
             name: "Photo String",
-            modify: function (val, data) {
+            modify: function(val, data) {
                 return "http://abc/" + val;
             }
         }, {
             name: "Photo Kebab",
-            modify: function (val, data) {
+            modify: function(val, data) {
                 return data.name + " " + moment(data.dob).format("MMM DD YYYY");
             }
         }]
@@ -99,12 +99,12 @@ module.exports = mongoose.model('UserAdmin', schema);
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema, "user", "user"));
 var model = {
 
-    existsSocial: function (user, callback) {
+    existsSocial: function(user, callback) {
         var Model = this;
         Model.findOne({
             "oauthLogin.socialId": user.id,
             "oauthLogin.socialProvider": user.provider,
-        }).exec(function (err, data) {
+        }).exec(function(err, data) {
             if (err) {
                 callback(err, data);
             } else if (_.isEmpty(data)) {
@@ -128,7 +128,7 @@ var model = {
                 if (user.image && user.image.url) {
                     modelUser.photo = user.image.url;
                 }
-                Model.saveData(modelUser, function (err, data2) {
+                Model.saveData(modelUser, function(err, data2) {
                     if (err) {
                         callback(err, data2);
                     } else {
@@ -146,19 +146,19 @@ var model = {
                 delete data.forgotPassword;
                 delete data.otp;
                 data.googleAccessToken = user.googleAccessToken;
-                data.save(function () {});
+                data.save(function() {});
                 callback(err, data);
             }
         });
     },
-    profile: function (data, callback, getGoogle) {
+    profile: function(data, callback, getGoogle) {
         var str = "name email photo mobile accessLevel";
         if (getGoogle) {
             str += " googleAccessToken googleRefreshToken";
         }
         User.findOne({
             accessToken: data.accessToken
-        }, str).exec(function (err, data) {
+        }, str).exec(function(err, data) {
             if (err) {
                 callback(err);
             } else if (data) {
@@ -168,15 +168,15 @@ var model = {
             }
         });
     },
-    updateAccessToken: function (id, accessToken) {
+    updateAccessToken: function(id, accessToken) {
         User.findOne({
             "_id": id
-        }).exec(function (err, data) {
+        }).exec(function(err, data) {
             data.googleAccessToken = accessToken;
-            data.save(function () {});
+            data.save(function() {});
         });
     },
-    getBloggers: function (data, callback) {
+    getBloggers: function(data, callback) {
         data.page = parseInt(data.page);
         var respo = {};
         respo.results = [];
@@ -184,12 +184,12 @@ var model = {
         respo.options.count = 0;
         respo.total = 0;
         async.parallel([
-            function (callback) {
+            function(callback) {
                 User.find({
                     isBlogger: true
                 }).sort({
-                    name: -1
-                }).skip((data.page - 1) * 25).limit(25).lean().exec(function (err, foundUser) {
+                    name: 1
+                }).skip((data.page - 1) * 25).limit(25).lean().exec(function(err, foundUser) {
                     if (err) {
                         console.log(err);
                         callback(err, null);
@@ -203,10 +203,10 @@ var model = {
                     }
                 });
             },
-            function (callback) {
+            function(callback) {
                 User.count({
                     isBlogger: true
-                }).lean().exec(function (err, foundUser) {
+                }).lean().exec(function(err, foundUser) {
                     if (err) {
                         console.log(err);
                         callback(err, null);
@@ -219,7 +219,7 @@ var model = {
                     }
                 });
             }
-        ], function (err, done) {
+        ], function(err, done) {
             if (err) {
                 console.log(err);
                 callback(err, null);
@@ -228,7 +228,7 @@ var model = {
             }
         });
     },
-    editData: function (data, callback) {
+    editData: function(data, callback) {
         User.findOneAndUpdate({
             _id: data._id
         }, {
@@ -236,7 +236,7 @@ var model = {
                 isPopular: data.status,
                 popularRank: data.popularRank
             }
-        }).lean().exec(function (err, updated) {
+        }).lean().exec(function(err, updated) {
             if (err) {
                 console.log(err);
                 callback(err, null);
