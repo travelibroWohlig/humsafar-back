@@ -1,46 +1,110 @@
+// var schema = new Schema({
+//     name: {
+//         type: String,
+//         required: true,
+//         excel: true,
+//     },
+//     email: {
+//         type: String,
+//         validate: validators.isEmail(),
+//         excel: "User Email",
+//         unique: true
+//     },
+//     dob: {
+//         type: Date,
+//         excel: {
+//             name: "Birthday",
+//             modify: function(val, data) {
+//                 return moment(val).format("MMM DD YYYY");
+//             }
+//         }
+//     },
+//     photo: {
+//         type: String,
+//         default: "",
+//         excel: [{
+//             name: "Photo Val"
+//         }, {
+//             name: "Photo String",
+//             modify: function(val, data) {
+//                 return "http://abc/" + val;
+//             }
+//         }, {
+//             name: "Photo Kebab",
+//             modify: function(val, data) {
+//                 return data.name + " " + moment(data.dob).format("MMM DD YYYY");
+//             }
+//         }]
+//     },
+//     password: {
+//         type: String,
+//         default: ""
+//     },
+//     forgotPassword: {
+//         type: String,
+//         default: ""
+//     },
+//     mobile: {
+//         type: String,
+//         default: ""
+//     },
+//     otp: {
+//         type: String,
+//         default: ""
+//     },
+//     accessToken: {
+//         type: [String],
+//         index: true
+//     },
+//     isPopular: {
+//         type: Boolean,
+//         default: false
+//     },
+//     isBlogger: {
+//         type: Boolean,
+//         default: false
+//     },
+//     popularRank: Number,
+//     urlSlug: {
+//         type: String
+//     },
+//     googleAccessToken: String,
+//     googleRefreshToken: String,
+//     oauthLogin: {
+//         type: [{
+//             socialId: String,
+//             socialProvider: String
+//         }],
+//         index: true
+//     },
+//     accessLevel: {
+//         type: String,
+//         default: "User",
+//         enum: ['User', 'Admin']
+//     }
+// });
 var schema = new Schema({
-    name: {
-        type: String,
-        required: true,
-        excel: true,
-    },
-    email: {
-        type: String,
-        validate: validators.isEmail(),
-        excel: "User Email",
-        unique: true
-    },
-    dob: {
-        type: Date,
-        excel: {
-            name: "Birthday",
-            modify: function(val, data) {
-                return moment(val).format("MMM DD YYYY");
-            }
-        }
-    },
-    photo: {
-        type: String,
-        default: "",
-        excel: [{
-            name: "Photo Val"
-        }, {
-            name: "Photo String",
-            modify: function(val, data) {
-                return "http://abc/" + val;
-            }
-        }, {
-            name: "Photo Kebab",
-            modify: function(val, data) {
-                return data.name + " " + moment(data.dob).format("MMM DD YYYY");
-            }
-        }]
-    },
-    password: {
+    firstName: {
         type: String,
         default: ""
     },
-    forgotPassword: {
+    lastName: {
+        type: String,
+        default: ""
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    isBlogger: {
+        type: Boolean,
+        default: false
+    },
+    isPhotographer: {
+        type: Boolean,
+        default: false
+    },
+    email: {
         type: String,
         default: ""
     },
@@ -48,39 +112,181 @@ var schema = new Schema({
         type: String,
         default: ""
     },
-    otp: {
+    password: {
         type: String,
         default: ""
     },
-    accessToken: {
-        type: [String],
+    forgotpassword: {
+        type: String,
+        default: ""
+    },
+    status: {
+        type: String,
+        default: "public"
+    },
+    facebookID: {
+        type: String,
+        default: ""
+    },
+    googleID: {
+        type: String,
+        default: ""
+    },
+    homeCity: {
+        type: String,
+        default: ""
+    },
+    homeCountry: {
+        type: Schema.Types.ObjectId,
+        ref: 'Country',
         index: true
+    },
+    profilePicture: {
+        type: String,
+        default: ""
+    },
+    gender: {
+        type: String,
+        default: ""
+    },
+    dob: {
+        type: Date
+    },
+    accessToken: {
+        type: String,
+        index: true,
+        select: false
     },
     isPopular: {
         type: Boolean,
         default: false
     },
-    isBlogger: {
+    popularRank: {
+        type: Number
+    },
+    travelConfig: {
+        kindOfHoliday: {
+            type: [String],
+            default: []
+        },
+        usuallyGo: {
+            type: [String],
+            default: []
+        },
+        preferToTravel: {
+            type: [String],
+            default: []
+        },
+        holidayType: {
+            type: [String],
+            default: []
+        }
+    },
+    countriesVisited: [{
+        countryId: {
+            type: Schema.Types.ObjectId,
+            ref: 'Country',
+            index: true
+        },
+        visited: [{
+            year: Number,
+            times: Number
+        }]
+    }],
+    provider: {
+        type: String
+    },
+    bucketList: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Country',
+        index: true
+    }],
+    userBadgeName: {
+        type: String,
+        default: "newbie"
+    },
+    followers: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        index: true
+    }],
+    following: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        index: true
+    }],
+    deviceId: [String],
+    UTC: {
+        type: Date
+    },
+    railsId: {
+        type: Number,
+        index: true
+    },
+    alreadyLoggedIn: {
         type: Boolean,
         default: false
     },
-    popularRank: Number,
-    urlSlug: {
+    localPost: {
+        type: Boolean,
+        default: false
+    },
+    travelPost: {
+        type: Boolean,
+        default: false
+    },
+    type: {
+        type: String,
+        default: "User"
+    },
+    profession: {
         type: String
     },
-    googleAccessToken: String,
-    googleRefreshToken: String,
-    oauthLogin: {
-        type: [{
-            socialId: String,
-            socialProvider: String
-        }],
-        index: true
+    favorite_city: {
+        type: String
     },
-    accessLevel: {
+    favorite_country: {
+        type: String
+    },
+    dream_destination: {
+        type: String
+    },
+    deactivate_account: {
+        type: Boolean,
+        default: false
+    },
+    deactivation_reason: {
+        type: String
+    },
+    blog_link: {
+        type: String
+    },
+    address: {
+        type: String
+    },
+    company_name: {
+        type: String
+    },
+    specializations: {
+        type: String
+    },
+    website: {
+        type: String
+    },
+    confirmed_at: {
+        type: Date
+    },
+    unsubscribed: {
+        type: Boolean,
+        default: false
+    },
+    access_token: {
         type: String,
-        default: "User",
-        enum: ['User', 'Admin']
+        select: false
+    },
+    data_upload: {
+        type: String,
+        enum: ["wifi&cellular", "wifi"]
     }
 });
 
