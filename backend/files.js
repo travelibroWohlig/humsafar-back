@@ -1,4 +1,5 @@
 module.exports = [
+
     'bower_components/jquery/dist/jquery.min.js',
     'bower_components/jStorage/jstorage.js',
     'bower_components/jquery-ui/jquery-ui.js',
@@ -34,6 +35,7 @@ module.exports = [
     "bower_components/intl-tel-input/lib/libphonenumber/build/utils.js",
     "bower_components/intl-tel-input/build/js/intlTelInput.js",
     "bower_components/international-phone-number/releases/international-phone-number.js",
+    // "bower_components/ngclipboard/dist/ngclipboard.js",
 
     'backend/js/app.js',
     'backend/js/language.js',

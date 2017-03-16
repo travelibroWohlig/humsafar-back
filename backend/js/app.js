@@ -693,6 +693,11 @@ firstapp.directive('viewField', function ($http, $filter, NavigationService) {
 
                 NavigationService.makePopular(type.url, value._id, value.isPopular, value.popularRank, function () {});
             };
+
+            $scope.showCreatedDate = function (date) {
+                console.log(date);
+                return moment(date).format("DD MM YYYY");
+            };
         }
     };
 });

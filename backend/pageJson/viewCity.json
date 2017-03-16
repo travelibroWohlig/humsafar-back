@@ -5,10 +5,15 @@
     "sendIdWithCreate": true,
     "urlFields": ["_id"],
     "fields": [{
-            "name": "Name",
-            "isSort": "",
-            "tableRef": "name"
-        }],
+        "name": "ID",
+        "isSort": "",
+        "tableRef": "_id",
+        "type": "clipboard"
+    }, {
+        "name": "Name",
+        "isSort": "",
+        "tableRef": "name"
+    }],
     "action": [{
         "name": "edit",
         "icon": "fa-pencil",
