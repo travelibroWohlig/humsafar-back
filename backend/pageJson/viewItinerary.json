@@ -1,0 +1,37 @@
+{
+    "title": "Popular Itinerary",
+    "pageType": "view",
+    "sendIdWithCreate": true,
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Name",
+        "isSort": "",
+        "tableRef": "name"
+    }, {
+        "name": "Is Popular",
+        "isSort": "",
+        "tableRef": "isPopulars",
+        "type": "toggle",
+        "url": "itinerary/editData"
+    }, {
+        "name": "Link",
+        "isSort": "",
+        "tableRef": "urlSlug"
+    }],
+    "action": [{
+        "name": "delete",
+        "icon": "fa-trash",
+        "buttonClass": "btn-danger",
+        "type": "apiCallConfirm",
+        "title": "Delete Popular Itinerary",
+        "content": "Are you sure you want to delete Popular Itinerary?",
+        "api": "itinerary/delete",
+        "fieldsToSend": {
+            "name": "_id"
+        }
+    }],
+    "apiCall": {
+        "url": "itinerary/search",
+        "params": "_id"
+    }
+}

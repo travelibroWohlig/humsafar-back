@@ -26,13 +26,13 @@ var navigationservice = angular.module('navigationservice', [])
                 name: "MustDo Country",
                 classis: "active",
                 sref: "#!/page/viewMustdocountry//",
-                icon: "location"
+                icon: "map-marker"
             },
             {
                 name: "MustDo City",
                 classis: "active",
                 sref: "#!/page/viewMustdocity//",
-                icon: "location"
+                icon: "map-marker"
             }, {
                 name: "Report Problem",
                 classis: "active",
@@ -43,6 +43,11 @@ var navigationservice = angular.module('navigationservice', [])
                 classis: "active",
                 sref: "#!/page/viewJourney//",
                 icon: "plane"
+            }, {
+                name: "Popular Itinerary",
+                classis: "active",
+                sref: "#!/page/viewItinerary//",
+                icon: "map"
             }
         ];
 
