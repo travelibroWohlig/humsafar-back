@@ -49,7 +49,7 @@
         "action": "createUser"
     }],
     "apiCall": {
-        "url": "User/getBloggers",
+        "url": "UserWeb/getBloggers",
         "params": "_id"
     }
 }
