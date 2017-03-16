@@ -228,7 +228,7 @@ var model = {
         async.parallel([
             function(callback) {
                 UserWeb.find({
-                    // isBlogger: true
+                    isBlogger: true
                 }).sort({
                     name: 1
                 }).skip((data.page - 1) * 25).limit(25).lean().exec(function(err, foundUser) {
@@ -247,7 +247,7 @@ var model = {
             },
             function(callback) {
                 UserWeb.count({
-                    // isBlogger: true
+                    isBlogger: true
                 }).lean().exec(function(err, foundUser) {
                     if (err) {
                         console.log(err);
