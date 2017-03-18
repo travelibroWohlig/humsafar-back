@@ -9,6 +9,10 @@ require('mongoose-middleware').initialize(mongoose);
 var Schema = mongoose.Schema;
 
 var schema = new Schema({
+    railsId: {
+        type: Number,
+        index: true
+    },
     name: {
         type: String,
         required: true,
@@ -23,17 +27,88 @@ var schema = new Schema({
         type: String,
         default: ""
     },
+    status: {
+        type: Boolean,
+        default: true
+    },
+    startLocationPic: String,
     isPopular: {
         type: Boolean,
         default: false
     },
-    popularRank: Number,
+    popularRank: {
+        type: Number
+    },
     startTime: {
         type: Date
     },
-    urlSlug: {
+    endTime: {
+        type: Date
+    },
+    onGoing: {
+        type: Boolean,
+        default: true
+    },
+    kindOfJourney: [{
         type: String
-    }
+    }],
+    journeyCreator: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        index: true
+    },
+    uniqueId: {
+        type: Schema.Types.ObjectId,
+        index: true
+    },
+    post: [{
+        type: Schema.Types.ObjectId,
+        ref: "Post",
+        index: true
+    }],
+    buddies: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        index: true
+    }],
+    coverPhoto: String,
+    countryVisited: [{
+        country: {
+            type: Schema.Types.ObjectId,
+            ref: 'Country',
+            index: true
+        },
+        date: Date,
+        counter: Number
+    }],
+    review: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Review',
+        index: true
+    }],
+    location: {
+        lat: String,
+        long: String
+    },
+    like: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        index: true
+    }],
+    userReview: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Review',
+        index: true
+    }],
+    comment: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Comment',
+        index: true
+    }],
+    landing_page: {
+        type: Boolean
+    },
+    shares_count: Number
 });
 
 schema.plugin(deepPopulate, {});

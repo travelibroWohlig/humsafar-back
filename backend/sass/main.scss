@@ -885,7 +885,12 @@
  .full-image {
      width: 100%;
  }
- 
+ .toggle-width{
+     width: 230px;
+     input{
+         height: 30px;
+     }
+ }
  .searchbox {
      width: 200px;
      display: inline-block;

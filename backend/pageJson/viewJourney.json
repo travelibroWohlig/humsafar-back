@@ -1,5 +1,5 @@
 {
-    "title": "Popular Journeys",
+    "title": "Journeys",
     "pageType": "view",
     "sendIdWithCreate": true,
     "urlFields": ["_id"],

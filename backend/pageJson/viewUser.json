@@ -5,32 +5,33 @@
     "sendIdWithCreate": true,
     "urlFields": ["_id"],
     "fields": [{
+        "name": "Id",
+        "isSort": "",
+        "tableRef": "_id",
+        "type":"clipboard"
+    },{
         "name": "Name",
         "isSort": "",
         "tableRef": "name"
-    }, {
+    },{
+        "name": "Source Login",
+        "isSort": "",
+        "tableRef": "",
+        "type": "loginSource"
+    },{
+        "name": "Email",
+        "isSort": "",
+        "tableRef": "email"
+    },{
         "name": "Blogger",
         "isSort": "",
-        "tableRef": "blogger"
-    }, {
+        "tableRef": "isBlogger"
+    },{
         "name": "Is Popular Blogger",
         "isSort": "",
         "tableRef": "isPopulars",
         "type": "toggle",
         "url": "userweb/editData"
-    }],
-    "action": [{
-        "name": "delete",
-        "icon": "fa-trash",
-        "buttonClass": "btn-danger",
-        "type": "apiCallConfirm",
-        "title": "Delete User",
-        "content": "Are you sure you want to delete User?",
-        "api": "user/delete",
-        "fieldsToSend": {
-            "name": "_id",
-            "value": "_id"
-        }
     }],
     "apiCall": {
         "url": "UserWeb/getBloggers",

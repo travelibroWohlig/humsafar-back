@@ -176,12 +176,21 @@ var schema = new Schema({
         required: true
     }
 });
+schema.plugin(deepPopulate, {
+  populate: {
+    'countryVisited.country': {
+      select: '_id name'
+    },
+    'countryVisited.country.cityVisited.city': {
+      select: '_id name'
+    }
+  }
+});
 
-schema.plugin(deepPopulate, {});
 schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
 module.exports = mongoose.model('Itinerary', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema,"countryVisited.country","countryVisited.country.cityVisited.city"));
 var model = {};
 module.exports = _.assign(module.exports, exports, model);

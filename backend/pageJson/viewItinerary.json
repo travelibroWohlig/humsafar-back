@@ -1,9 +1,14 @@
 {
-    "title": "Popular Itinerary",
+    "title": "Itinerary",
     "pageType": "view",
     "sendIdWithCreate": true,
     "urlFields": ["_id"],
     "fields": [{
+        "name": "Id",
+        "isSort": "",
+        "tableRef": "_id",
+        "type": "clipboard"
+    },{
         "name": "Name",
         "isSort": "",
         "tableRef": "name"
@@ -13,22 +18,24 @@
         "tableRef": "isPopulars",
         "type": "toggle",
         "url": "itinerary/editData"
+    },{
+        "name": "Countries",
+        "fieldToBeShown":"country",
+        "type":"fkListView",
+        "key":"countryVisited",
+        "level1":"country",
+        "level2":"name",
+        "isSort": "",
+        "tableRef": "countryVisited"
+    },
+    {
+        "name": "City",
+        "isSort": "",
+        "tableRef": "city"
     }, {
         "name": "Link",
         "isSort": "",
         "tableRef": "urlSlug"
-    }],
-    "action": [{
-        "name": "delete",
-        "icon": "fa-trash",
-        "buttonClass": "btn-danger",
-        "type": "apiCallConfirm",
-        "title": "Delete Popular Itinerary",
-        "content": "Are you sure you want to delete Popular Itinerary?",
-        "api": "itinerary/delete",
-        "fieldsToSend": {
-            "name": "_id"
-        }
     }],
     "apiCall": {
         "url": "itinerary/search",

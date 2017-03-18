@@ -5,6 +5,11 @@
     "sendIdWithCreate": true,
     "urlFields": ["_id"],
     "fields": [{
+        "name": "ID",
+        "isSort": "",
+        "tableRef": "_id",
+        "type": "clipboard"
+    },{
         "name": "Name",
         "isSort": "",
         "tableRef": "name"
@@ -18,19 +23,8 @@
         "fieldsToSend": {
             "_id": "_id"
         }
-    }, {
-        "name": "delete",
-        "icon": "fa-trash",
-        "buttonClass": "btn-danger",
-        "type": "apiCallConfirm",
-        "title": "Delete Country",
-        "content": "Are you sure you want to delete Country?",
-        "api": "Country/delete",
-        "fieldsToSend": {
-            "name": "_id"
-        }
     }],
-    "button": [ {
+    "button": [{
         "name": "Create",
         "icon": "plus",
         "class": "btn-success",

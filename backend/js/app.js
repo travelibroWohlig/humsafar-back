@@ -11,7 +11,8 @@ var firstapp = angular.module('firstapp', [
     "ngMap",
     "internationalPhoneNumber",
     "jsonservicemod",
-    'toggle-switch'
+    'toggle-switch',
+    'angular-clipboard'
 ]);
 
 firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
@@ -730,5 +731,17 @@ firstapp.directive('detailField', function ($http, $filter, JsonService) {
 firstapp.filter('urlencoder', function () {
     return function (input) {
         return window.encodeURIComponent(input);
+    };
+});
+
+
+firstapp.filter('showElementArray', function () {
+    return function (obj,level1,level2) {
+        var retVal = [];
+        _.each(obj,function(n) {
+            retVal.push(n[level1][level2]);
+        });
+        return _.join(retVal,", ");
+
     };
 });
