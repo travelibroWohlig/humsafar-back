@@ -4,38 +4,59 @@
     "sendIdWithCreate": true,
     "urlFields": ["_id"],
     "fields": [{
-        "name": "Id",
-        "isSort": "",
-        "tableRef": "_id",
-        "type": "clipboard"
-    },{
-        "name": "Name",
-        "isSort": "",
-        "tableRef": "name"
-    }, {
-        "name": "Is Popular",
-        "isSort": "",
-        "tableRef": "isPopulars",
-        "type": "toggle",
-        "url": "itinerary/editData"
-    },{
-        "name": "Countries",
-        "fieldToBeShown":"country",
-        "type":"fkListView",
-        "key":"countryVisited",
-        "level1":"country",
-        "level2":"name",
-        "isSort": "",
-        "tableRef": "countryVisited"
-    },
-    {
-        "name": "City",
-        "isSort": "",
-        "tableRef": "city"
-    }, {
-        "name": "Link",
-        "isSort": "",
-        "tableRef": "urlSlug"
+            "name": "Id",
+            "isSort": "",
+            "tableRef": "_id",
+            "type": "clipboard"
+        },{
+            "name": "User Name",
+            "tableRef": "user",
+            "key":"user",
+            "type": "fkListViewOne",
+            "level1": "name",
+            "isSort": ""
+        }, {
+            "name": "Itinerary Name",
+            "isSort": "",
+            "tableRef": "name"
+        }, {
+            "name": "Is Popular",
+            "isSort": "",
+            "tableRef": "isPopulars",
+            "type": "toggle",
+            "url": "itinerary/editData"
+        }, {
+            "name": "Countries",
+            "fieldToBeShown": "country",
+            "type": "fkListView",
+            "key": "countryVisited",
+            "level1": "country",
+            "level2": "name",
+            "isSort": "",
+            "tableRef": "countryVisited"
+        },
+        {
+            "name": "City",
+            "tableRef": "city",
+            "type": "fkListView",
+            "key": "countryVisited",
+            "level1": "cityVisited",
+            "level2": "city",
+            "level3": "name",
+            "isSort": ""
+        }
+    ],
+    "action": [ {
+        "name": "Open Link",
+        "icon": "fa-add",
+        "buttonClass": "btn-primary",
+        "type": "redirect",
+        "linkType": "External",
+        "targetBlank":"_blank",
+        "action":"http://travelibro.net/users/sohan-honakeri-2",
+        "fieldsToSend": {
+            "name": "_id"
+        }
     }],
     "apiCall": {
         "url": "itinerary/search",

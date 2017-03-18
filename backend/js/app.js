@@ -736,12 +736,34 @@ firstapp.filter('urlencoder', function () {
 
 
 firstapp.filter('showElementArray', function () {
-    return function (obj,level1,level2) {
-        var retVal = [];
-        _.each(obj,function(n) {
-            retVal.push(n[level1][level2]);
-        });
-        return _.join(retVal,", ");
+    return function (obj, level1, level2, level3) {
+         var retVal = [];
+        if (level3) {
+            _.each(obj, function (n) {
+                _.each(n[level1], function (m) {
+                    retVal.push(m[level2][level3]);
+                });
 
+            });
+        } else if (level2) {
+            _.each(obj, function (n) {
+                retVal.push(n[level1][level2]);
+            });
+        } else {
+            retVal.push([level1]);
+        }
+        return _.join(_.uniq(retVal), ", ");
     };
 });
+
+// firstapp.filter('showElementArrays', function () {
+//     return function (obj,level1,level2,level3,level4) {
+//         var retVal = [];
+//         _.each(obj,function(n) {
+//             if()
+//             retVal.push(n[level1][level2][level3][level4]);
+//         });
+//         return _.join(retVal,", ");
+
+//     };
+// });

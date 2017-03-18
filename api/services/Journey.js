@@ -111,12 +111,18 @@ var schema = new Schema({
     shares_count: Number
 });
 
-schema.plugin(deepPopulate, {});
+
+schema.plugin(deepPopulate, {
+      populate: { 'user': {
+      select: '_id name'
+    }
+}
+});
 schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
 module.exports = mongoose.model('Journey', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema,"user","user"));
 var model = {
     getJourney: function (data, callback) {
         data.page = parseInt(data.page);
