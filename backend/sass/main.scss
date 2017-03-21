@@ -78,11 +78,11 @@
 }
 
 .body {
-  font-family: "avenir-lt-std-65-medium-58708f166adc1" !important;
+  font-family: "avenir-lt-std-65-medium-58708f166adc1";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-th{
+th,h1, h2, h3, h4, h5, h6 {
     font-family: "AvenirLTStd-Heavy";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -176,7 +176,7 @@ th{
      border-radius: 25px;
      color: #ffffff;
      float: left;
-     font-family: Montserrat;
+      font-family: "AvenirLTStd-Heavy";
      font-size: 12px;
      margin-top: 20px;
      padding: 14px 30px;

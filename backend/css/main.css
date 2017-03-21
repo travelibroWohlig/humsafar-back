@@ -6,8 +6,8 @@
 @import url(../bower_components/angular-ui-select/dist/select.min.css);
 @import url(../bower_components/angular-toastr/dist/angular-toastr.css);
 @import url(../bower_components/angular-hotkeys/build/hotkeys.css);
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic,700,700italic,300,300italic");
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+/*@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic,700,700italic,300,300italic");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");*/
 @font-face {
   font-family: 'Linearicons';
   src: url("../fonts/Linearicons.ttf?-m09hd") format("truetype");
@@ -32,6 +32,26 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+
+  @font-face {
+  font-family: "AvenirLTStd-Medium";
+  src: url('../fonts/AvenirLTStd-Medium.otf');
+}
+
+@font-face {
+  font-family: "AvenirLTStd-Black";
+  src: url('../fonts/AvenirLTStd-Black.otf');
+}
+
+@font-face {
+  font-family: "AvenirLTStd-Heavy";
+  src: url('../fonts/AvenirLTStd-Heavy.otf');
+}
+
+@font-face {
+  font-family: "AvenirLTStd-Roman";
+  src: url('../fonts/AvenirLTStd-Roman.otf');
+}
 
 .ln-home:before {
   content: "\e600"; }
@@ -10478,17 +10498,17 @@ body {
   background: #e8edf2 none repeat scroll 0 0;
   color: #505050;
   float: left;
-  font-family: Open sans;
+font-family: "avenir-lt-std-65-medium-58708f166adc1";
   letter-spacing: 0.3px;
   position: relative;
   width: 100%; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   color: #202020; }
 
 p {
-  font-family: Open sans;
+font-family: "avenir-lt-std-65-medium-58708f166adc1";
   color: #777777;
   line-height: 26px;
   font-size: 13px;
@@ -10496,7 +10516,7 @@ p {
 
 ul li, ul li a,
 ol li, ol li a {
-  font-family: Open sans;
+font-family: "avenir-lt-std-65-medium-58708f166adc1";
   color: #666666;
   font-size: 13px;
   line-height: 20px; }
@@ -10539,7 +10559,7 @@ a {
 .logo > a {
   color: #263238;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 14px;
   font-weight: bold;
   line-height: 25px; }
@@ -10859,14 +10879,14 @@ header.side-header.light-skin {
   color: #ffffff;
   display: block;
   float: none;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 15px;
   margin: 3px 0 0; }
 
 .admin-details > i {
   color: #c8c8c8;
   display: block;
-  font-family: Open sans;
+font-family: "avenir-lt-std-65-medium-58708f166adc1";
   font-size: 10px;
   font-style: normal;
   font-weight: 600;
@@ -10879,7 +10899,7 @@ header.side-header.light-skin {
 .admin-status {
   color: #ffffff;
   float: left;
-  font-family: Open sans;
+font-family: "avenir-lt-std-65-medium-58708f166adc1";
   font-size: 10px;
   font-weight: bold;
   margin: 7px 0 0;
@@ -10922,7 +10942,7 @@ header.side-header.light-skin {
 .side-menus > span {
   color: #a6a6a6;
   float: left;
-  font-family: Open sans;
+font-family: "avenir-lt-std-65-medium-58708f166adc1";
   font-size: 10px;
   padding: 0 30px;
   text-transform: uppercase;
@@ -10947,8 +10967,8 @@ header.side-header.light-skin {
 .side-menus nav > ul > li > a {
   color: #d1d1d1;
   float: left;
-  font-family: Open sans;
-  font-size: 13px;
+  font-family: "avenir-heavy";
+  font-size: 15px;
   padding: 10px 30px;
   position: relative; }
 
@@ -11007,7 +11027,7 @@ header.side-header.light-skin {
 .side-menus nav > ul > li ul li > a {
   color: #a1a3a4;
   float: left;
-  font-family: Open sans;
+font-family: "avenir-lt-std-65-medium-58708f166adc1";
   font-size: 12px;
   padding: 3px 20px 3px 40px;
   width: 100%; }
@@ -11054,7 +11074,7 @@ header.side-header.light-skin {
 .breadcrumbs > ul > li > a {
   color: #797d80;
   float: left;
-  font-family: Open sans;
+font-family: "avenir-lt-std-65-medium-58708f166adc1";
   font-size: 12px;
   margin-right: 15px;
   padding-right: 15px;
@@ -11063,7 +11083,7 @@ header.side-header.light-skin {
 .breadcrumbs > ul > li > a::before {
   color: #797d80;
   content: "/";
-  font-family: Open sans;
+font-family: "avenir-lt-std-65-medium-58708f166adc1";
   font-size: 12px;
   position: absolute;
   right: -2px;
@@ -11088,7 +11108,7 @@ header.side-header.light-skin {
 .heading-profile > h2 {
   color: #263238;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 20px;
   margin: 0 0 6px;
   width: 100%; }
@@ -11099,7 +11119,7 @@ header.side-header.light-skin {
 .heading-profile > span {
   color: #747b7f;
   float: left;
-  font-family: Open sans;
+font-family: "avenir-lt-std-65-medium-58708f166adc1";
   font-size: 13px;
   width: 100%; }
 
@@ -11120,14 +11140,14 @@ header.side-header.light-skin {
 .quick-report p {
   color: #7a7979;
   float: left;
-  font-family: Open sans;
+font-family: "avenir-lt-std-65-medium-58708f166adc1";
   font-size: 12px;
   line-height: 11px; }
 
 .quick-report h3 {
   color: #4c4c4c;
   display: list-item;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 19px;
   list-style: outside none none;
   margin: 0; }
@@ -11261,7 +11281,7 @@ header.side-header.light-skin {
 .mini-stats > p {
   color: #878888;
   display: block;
-  font-family: Open sans;
+font-family: "avenir-lt-std-65-medium-58708f166adc1";
   font-size: 11px;
   line-height: 20px;
   margin: 6px 0 0;
@@ -11318,7 +11338,7 @@ header.side-header.light-skin {
 .cirlce-chart-detail > span {
   color: #777777;
   float: left;
-  font-family: Open sans;
+font-family: "avenir-lt-std-65-medium-58708f166adc1";
   font-size: 11px;
   letter-spacing: 0.3px;
   margin-bottom: 4px;
@@ -11373,7 +11393,7 @@ header.side-header.light-skin {
 .total-sales-info li > span {
   color: #777777;
   float: left;
-  font-family: Open sans;
+font-family: "avenir-lt-std-65-medium-58708f166adc1";
   font-size: 13px;
   font-weight: 200;
   width: 100%; }
@@ -11381,7 +11401,7 @@ header.side-header.light-skin {
 .total-sales-info ul li h5 {
   color: #4d575d;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 18px;
   margin: 4px 0 0;
   width: 100%; }
@@ -11629,7 +11649,7 @@ header.side-header.light-skin {
 .admin-follow > ul > li > span {
   color: #4d575d;
   display: block;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 15px;
   margin-top: 10px; }
 
@@ -11690,7 +11710,7 @@ form.filterform {
 .client-info > h3 a {
   color: #2e2e2e;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 15px;
   margin: 0;
   width: 100%; }
@@ -11766,7 +11786,7 @@ form.filterform {
 .product-info > h3 {
   color: #ffffff;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 22px;
   margin: 0 0 7px;
   width: 100%; }
@@ -12396,7 +12416,7 @@ footer li {
 .server-details > h5 {
   color: #929292;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 13px;
   margin: 0;
   width: 100%; }
@@ -12619,7 +12639,7 @@ footer li {
 .social-widget > span {
   color: #9f9f9f;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 16px;
   margin-top: 11px;
   text-align: center;
@@ -12696,7 +12716,7 @@ footer li {
 .map-table > h3 {
   color: #666666;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 15px;
   font-weight: bold;
   letter-spacing: 0.2px;
@@ -12708,7 +12728,7 @@ footer li {
 .map-table > h4 {
   color: #464646;
   float: right;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 15px;
   letter-spacing: 0.2px;
   margin: 0;
@@ -12780,7 +12800,7 @@ footer li {
   -o-border-radius: 3px;
   border-radius: 3px;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 15px;
   left: 50%;
   margin: 0;
@@ -12809,7 +12829,7 @@ footer li {
 .product-stats > ul > li > span {
   color: #494949;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 14px;
   margin-top: 6px;
   width: 100%; }
@@ -12823,7 +12843,7 @@ footer li {
   border-radius: 5px;
   color: #ffffff;
   display: inline-block;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 13px;
   margin-top: 25px;
   padding: 12px 27px; }
@@ -12895,7 +12915,7 @@ footer li {
   border-radius: 3px;
   color: #717171;
   float: right;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 12px;
   padding: 6px 14px; }
 
@@ -13046,7 +13066,7 @@ footer li {
 .who-post-detail > h3 > a {
   color: #2e2e2e;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 14px;
   padding-right: 20px;
   position: relative; }
@@ -13371,7 +13391,7 @@ footer li {
 
 .comment-detail > span > a {
   color: #000000;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 13px; }
 
 .comment-detail > p {
@@ -13497,7 +13517,7 @@ footer li {
 
 .quick-stats-box > p > i {
   color: #ffffff;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 14px;
   font-style: normal;
   left: 0;
@@ -13837,7 +13857,7 @@ footer li {
 .notify h3 {
   color: #2e2e2e;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 15px;
   line-height: 26px;
   margin: 0 14px 0 0; }
@@ -13915,7 +13935,7 @@ footer li {
 .search-sec > span {
   color: #232323;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 15px;
   margin-bottom: 20px;
   width: 100%; }
@@ -14114,7 +14134,7 @@ footer li {
 .price-title {
   color: #383838;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 18px;
   padding: 0 20px;
   width: 100%; }
@@ -14133,7 +14153,7 @@ footer li {
   color: #383838;
   display: inline-block;
   float: none;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 90px;
   font-weight: 900;
   margin: 0; }
@@ -14141,7 +14161,7 @@ footer li {
 .price-rate > h3 > span {
   color: #b4b2b2;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 30px;
   font-weight: normal;
   line-height: 59px;
@@ -14195,7 +14215,7 @@ footer li {
   -o-border-radius: 5px;
   border-radius: 5px;
   display: inline-block;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 13px;
   line-height: 10px;
   padding: 17px 20px; }
@@ -19006,7 +19026,7 @@ footer li {
   border-radius: 25px;
   color: #ffffff;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 12px;
   margin-top: 20px;
   padding: 14px 30px; }
@@ -19070,7 +19090,7 @@ footer li {
   border-radius: 40px;
   color: #ffffff;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 13px;
   margin-top: 19px;
   padding: 14px 30px; }
@@ -19170,7 +19190,7 @@ footer li {
 .invoice-sec strong {
   color: #232323;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 15px;
   font-weight: normal;
   letter-spacing: 0.3px;
@@ -19227,7 +19247,7 @@ footer li {
 .invoice-head h2 {
   color: #232323;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 14px;
   font-weight: normal;
   letter-spacing: 0.3px;
@@ -19306,7 +19326,7 @@ footer li {
   border-radius: 5px;
   color: #ffffff;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 14px;
   line-height: 10px;
   margin: 20px;
@@ -19336,7 +19356,7 @@ footer li {
 .cart-heading h2 {
   color: #2e2e2e;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 15px;
   font-weight: 500;
   line-height: 12px;
@@ -19516,7 +19536,7 @@ footer li {
 .cart-total-sec span {
   color: #444444;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 15px;
   font-weight: 100;
   letter-spacing: 0.3px;
@@ -19601,7 +19621,7 @@ footer li {
 
 .payment-method > label {
   display: list-item;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 12px;
   font-weight: 100;
   letter-spacing: 0.25px;
@@ -19649,7 +19669,7 @@ footer li {
   border-radius: 5px;
   color: #ffffff;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 13px;
   letter-spacing: 0.25px;
   padding: 12px 20px;
@@ -19674,7 +19694,7 @@ footer li {
   border-radius: 40px;
   color: #ffffff;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 13px;
   letter-spacing: 0.25px;
   margin-top: 40px;
@@ -19683,7 +19703,7 @@ footer li {
 
 .billing-sec .field > label {
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 12px;
   font-weight: normal;
   margin: 0 0 10px;
@@ -20136,7 +20156,7 @@ acronym {
   border: medium none;
   color: #ffffff;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   margin-top: 20px;
   width: auto;
   margin-bottom: 0; }
@@ -20166,7 +20186,7 @@ acronym {
 
 .contact-details-info > h3 {
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 18px;
   margin-bottom: 9px;
   width: 100%; }
@@ -20182,7 +20202,7 @@ acronym {
   color: #676666;
   display: table;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 13px;
   margin-bottom: 14px;
   width: 100%; }
@@ -20229,7 +20249,7 @@ acronym {
 .error-sec > h2 {
   color: #232323;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 180px;
   font-weight: bold;
   margin: 0;
@@ -20245,7 +20265,7 @@ acronym {
   color: #ffffff;
   display: inline-block;
   float: none;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 13px;
   padding: 13px 22px; }
 
@@ -20672,7 +20692,7 @@ ul.countdown {
   background: #ffffff none repeat scroll 0 0;
   border: medium none;
   display: inline-block;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   padding: 15px 50px;
   text-align: center; }
 
@@ -20681,7 +20701,7 @@ ul.countdown {
   border: medium none;
   color: #ffffff;
   display: inline-block;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   height: 50px;
   padding: 0 20px; }
 
@@ -20700,7 +20720,7 @@ ul.countdown > li {
 
 ul.countdown > li > span {
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 27px;
   margin-bottom: 5px;
   padding-top: 48px;
@@ -20830,7 +20850,7 @@ ul.countdown > li > p {
 
 .product-four > h3 {
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 17px;
   margin: 20px 0 5px;
   width: 100%; }
@@ -20899,7 +20919,7 @@ ul.countdown > li > p {
 
 .team-info > h3 {
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 17px;
   width: 100%; }
 
@@ -21143,7 +21163,7 @@ ul.countdown > li > p {
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 15px;
   overflow: hidden;
   padding: 13px 30px 13px 60px;
@@ -21217,7 +21237,7 @@ ul.countdown > li > p {
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   outline: medium none;
   padding: 11px 37px; }
 
@@ -21646,7 +21666,7 @@ ul.countdown > li > p {
   border-radius: 30px;
   color: #2e2e2e;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-weight: normal;
   padding: 13px 40px;
   margin: 0;
@@ -21711,7 +21731,7 @@ ul.countdown > li > p {
 
 .user-thumb > h3 {
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 18px;
   text-align: center;
   width: 100%; }
@@ -21738,7 +21758,7 @@ ul.countdown > li > p {
 .user-bar > ul > li {
   color: #2e2e2e;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 19px;
   padding: 23px 25px 19px; }
 
@@ -21760,7 +21780,7 @@ ul.countdown > li > p {
   border-radius: 20px;
   color: #ffffff;
   float: right;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 13px;
   margin: 22px 40px;
   padding: 10px 23px; }
@@ -21925,7 +21945,7 @@ input:checked + .toggle .toggle__handler {
 
 .inbox-panel-head > h1 {
   display: block;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 16px;
   margin: 3px 0 8px; }
 
@@ -21965,7 +21985,7 @@ input:checked + .toggle .toggle__handler {
   border-radius: 45px;
   color: #fff;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 14px;
   padding: 10px 31px; }
 
@@ -22020,7 +22040,7 @@ input:checked + .toggle .toggle__handler {
 
 .flaged > h3 {
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 16px;
   margin: 10px 0 0;
   padding: 24px 40px;
@@ -22130,7 +22150,7 @@ input:checked + .toggle .toggle__handler {
 
 .message-list > li > .sender-name {
   display: inline-block;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 14px;
   margin: 0;
   width: auto; }
@@ -22359,7 +22379,7 @@ li.L9 {
   border: medium none;
   color: #ffffff;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   margin-bottom: 2px;
   margin-right: 2px;
   padding: 0;
@@ -26589,7 +26609,7 @@ li.L9 {
   background: #e1e1e1 none repeat scroll 0 0;
   color: #000000;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   margin-bottom: 10px;
   margin-right: 10px;
   padding: 10px 30px; }
@@ -26601,7 +26621,7 @@ li.L9 {
 
 .effects > h2 {
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 18px;
   margin: 0 0 10px;
   padding-bottom: 20px;
@@ -26667,7 +26687,7 @@ li.L9 {
 .maintainance-mode h2 {
   color: #333333;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 25px;
   font-weight: bold;
   line-height: 30px;
@@ -26686,7 +26706,7 @@ li.L9 {
 
 .maintainance-mode .fancy-social > span {
   color: #c9c9c9;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 11px;
   font-weight: normal;
   letter-spacing: 0.5px; }
@@ -26702,7 +26722,7 @@ li.L9 {
   background: transparent none repeat scroll 0 0;
   border: medium none;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 13px;
   letter-spacing: 0.5px;
   padding: 9px 20px; }
@@ -26717,7 +26737,7 @@ li.L9 {
   border-radius: 5px;
   color: #fff;
   float: right;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 13px;
   padding: 9px 24px; }
 
@@ -27514,7 +27534,7 @@ a,
   border-radius: 25px;
   color: #ffffff;
   float: left;
-  font-family: Montserrat;
+   font-family: "AvenirLTStd-Heavy";
   font-size: 12px;
   margin-top: 20px;
   padding: 14px 30px; }
