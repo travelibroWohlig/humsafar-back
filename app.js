@@ -26,8 +26,8 @@ mongoose = require('mongoose');
 
 global["database"] = "betaTravelibro";
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://104.199.132.38:27017/' + database, function (err) {
-// mongoose.connect('mongodb://localhost:27017/' + database, function (err) {
+// mongoose.connect('mongodb://104.199.132.38:27017/' + database, function (err) {
+mongoose.connect('mongodb://localhost:27017/' + database, function (err) {
     if (err) {
         console.log(err);
     }
