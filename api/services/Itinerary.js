@@ -177,16 +177,17 @@ var schema = new Schema({
     }
 });
 schema.plugin(deepPopulate, {
-  populate: { 'user': {
-      select: '_id name'
-    },
-    'countryVisited.country': {
-      select: '_id name'
-    },
-    'countryVisited.cityVisited.city': {
-      select: '_id name'
+    populate: {
+        'user': {
+            select: '_id name'
+        },
+        'countryVisited.country': {
+            select: '_id name'
+        },
+        'countryVisited.cityVisited.city': {
+            select: '_id name'
+        }
     }
-  }
 });
 
 
@@ -194,6 +195,26 @@ schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
 module.exports = mongoose.model('Itinerary', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema,"user countryVisited.country countryVisited.cityVisited.city","user countryVisited.country countryVisited.cityVisited.city"));
-var model = {};
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema, "user countryVisited.country countryVisited.cityVisited.city", "user countryVisited.country countryVisited.cityVisited.city"));
+var model = {
+    editData: function(data, callback) {
+        Itinerary.findOneAndUpdate({
+            _id: data._id
+        }, {
+            $set: {
+                isPopular: data.status,
+                popularRank: data.popularRank
+            }
+        }).lean().exec(function(err, updated) {
+            if (err) {
+                console.log(err);
+                callback(err, null);
+            } else if (!_.isEmpty(updated)) {
+                callback(null, "Updated");
+            } else {
+                callback("Itinerary not found", null);
+            }
+        });
+    }
+};
 module.exports = _.assign(module.exports, exports, model);

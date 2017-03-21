@@ -59,12 +59,9 @@ module.exports.http = {
             req.models = req.path.split("/");
             // console.log(req.models);
 
-            req.model = mongoose.models[_.upperFirst(req.models[2])];
+            req.model = global[_.upperFirst(req.models[2])];
             if (_.upperFirst(req.models[2]) == "User") {
                 req.model = mongoose.models["UserAdmin"];
-            }
-            if (_.upperFirst(req.models[2]) == "UserWeb") {
-                req.model = UserWeb;
             }
             req.modelName = _.upperFirst(req.models[2]);
 
