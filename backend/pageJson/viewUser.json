@@ -42,8 +42,11 @@
         "type": "toggle",
         "url": "userweb/editData"
     }],
-    "apiCall": {
+    "apiCall": [{
         "url": "UserWeb/getBloggers",
         "params": "_id"
-    }
+    },{
+        "url": "UserWeb/search",
+        "params": "_id"
+    }]
 }
