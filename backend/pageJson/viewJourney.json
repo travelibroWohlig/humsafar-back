@@ -46,10 +46,6 @@
         "isSort": "",
         "tableRef": "post",
         "type":"showLength"
-    },{
-        "name": "Month & Year",
-        "isSort": "",
-        "tableRef": "name"
     }, {
         "name": "Is Popular",
         "isSort": "",

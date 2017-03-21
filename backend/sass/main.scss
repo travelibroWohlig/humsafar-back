@@ -1,5 +1,5 @@
  $output-bourbon-deprecation-warnings: false;
- @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic,600,600italic,700,700italic);
+//  @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic,600,600italic,700,700italic);
  @import "../../bower_components/bourbon/app/assets/stylesheets/bourbon";
  @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
  @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
@@ -35,7 +35,58 @@
      src: url("../fonts/glyphicons-halflings-regular.eot");
      src: url("../fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/glyphicons-halflings-regular.woff2") format("woff2"), url("../fonts/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
  }
- 
+ // fonts
+@font-face {
+  font-family: "AvenirLTStd-Medium";
+  src: url('../fonts/AvenirLTStd-Medium.otf');
+}
+
+@font-face {
+  font-family: "AvenirLTStd-Black";
+  src: url('../fonts/AvenirLTStd-Black.otf');
+}
+
+@font-face {
+  font-family: "AvenirLTStd-Heavy";
+  src: url('../fonts/AvenirLTStd-Heavy.otf');
+}
+
+@font-face {
+  font-family: "AvenirLTStd-Roman";
+  src: url('../fonts/AvenirLTStd-Roman.otf');
+}
+//fonts end
+
+//css
+// classes
+.avenir-black {
+  font-family: "AvenirLTStd-Black";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.avenir-heavy {
+  font-family: "AvenirLTStd-Heavy";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.avenir-medium {
+  font-family: "AvenirLTStd-Medium";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.body {
+  font-family: "avenir-lt-std-65-medium-58708f166adc1" !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+th{
+    font-family: "AvenirLTStd-Heavy";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
  button,
  div,
  input {
