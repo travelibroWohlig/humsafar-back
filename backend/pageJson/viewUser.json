@@ -8,34 +8,34 @@
         "name": "Id",
         "isSort": "",
         "tableRef": "_id",
-        "type":"clipboard"
-    },{
+        "type": "clipboard"
+    }, {
         "name": "Name",
         "isSort": "",
         "tableRef": "name"
-    },{
+    }, {
         "name": "Type",
         "isSort": "",
         "tableRef": "type"
-    },{
+    }, {
         "name": "Source Login",
         "isSort": "",
         "tableRef": "",
         "type": "loginSource"
-    },{
+    }, {
         "name": "Created At",
         "isSort": "",
         "tableRef": "createdAt",
         "type": "date"
-    },{
+    }, {
         "name": "Email",
         "isSort": "",
         "tableRef": "email"
-    },{
+    }, {
         "name": "Blogger",
         "isSort": "",
         "tableRef": "isBlogger"
-    },{
+    }, {
         "name": "Is Popular Blogger",
         "isSort": "",
         "tableRef": "isPopulars",
@@ -43,7 +43,7 @@
         "url": "userweb/editData"
     }],
     "apiCall": {
-        "url": "UserWeb/getBloggers",
+        "url": "UserWeb/search",
         "params": "_id"
     }
 }
