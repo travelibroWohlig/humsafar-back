@@ -55,19 +55,22 @@ module.exports.http = {
          *                                                                           *
          ****************************************************************************/
 
-        myRequestLogger: function (req, res, next) {
+        myRequestLogger: function(req, res, next) {
             req.models = req.path.split("/");
             // console.log(req.models);
-            
+
             req.model = mongoose.models[_.upperFirst(req.models[2])];
-            if(_.upperFirst(req.models[2]) == "User") {
+            if (_.upperFirst(req.models[2]) == "User") {
                 req.model = mongoose.models["UserAdmin"];
+            }
+            if (_.upperFirst(req.models[2]) == "UserWeb") {
+                req.model = UserWeb;
             }
             req.modelName = _.upperFirst(req.models[2]);
 
 
             if (req.body && req.body._accessToken) {
-                User.profile(req.body, function (err, data) {
+                User.profile(req.body, function(err, data) {
                     if (err) {
                         res.json({
                             error: err,
