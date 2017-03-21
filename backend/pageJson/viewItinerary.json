@@ -20,12 +20,6 @@
             "isSort": "",
             "tableRef": "name"
         }, {
-            "name": "Is Popular",
-            "isSort": "",
-            "tableRef": "isPopulars",
-            "type": "toggle",
-            "url": "itinerary/editData"
-        }, {
             "name": "Countries",
             "fieldToBeShown": "country",
             "type": "fkListView",
@@ -44,9 +38,22 @@
             "level2": "city",
             "level3": "name",
             "isSort": ""
+        },{
+            "name": "Duration",
+            "isSort": "",
+            "tableRef": "",
+            "current":"startTime",
+            "previous":"endTime",
+            "type": "duration"
+        }, {
+            "name": "Is Popular",
+            "isSort": "",
+            "tableRef": "isPopulars",
+            "type": "toggle",
+            "url": "itinerary/editData"
         }
     ],
-    "action": [ {
+    "action": [{
         "name": "Open Link",
         "icon": "fa-add",
         "buttonClass": "btn-primary",

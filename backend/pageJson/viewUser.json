@@ -23,6 +23,11 @@
         "tableRef": "",
         "type": "loginSource"
     },{
+        "name": "Created At",
+        "isSort": "",
+        "tableRef": "createdAt",
+        "type": "date"
+    },{
         "name": "Email",
         "isSort": "",
         "tableRef": "email"

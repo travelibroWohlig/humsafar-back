@@ -22,23 +22,30 @@
     },{
         "name": "Start Date",
         "isSort": "",
-        "tableRef": "startTime"
+        "tableRef": "startTime",
+        "type": "date"
     },{
         "name": "End Date",
         "isSort": "",
-        "tableRef": "endTime"
+        "tableRef": "endTime",
+        "type": "date"
     },{
         "name": "Duration",
         "isSort": "",
-        "tableRef": "name"
-    },{
+        "tableRef": "",
+        "current":"endTime",
+        "previous":"startTime",
+        "type": "duration"
+        },{
         "name": "No of Travellers",
         "isSort": "",
-        "tableRef": "name"
+        "tableRef": "buddies",
+        "type":"showLengthOne"
     },{
         "name": "No of Events",
         "isSort": "",
-        "tableRef": "name"
+        "tableRef": "post",
+        "type":"showLength"
     },{
         "name": "Month & Year",
         "isSort": "",

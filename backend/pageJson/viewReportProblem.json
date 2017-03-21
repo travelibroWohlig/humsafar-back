@@ -4,10 +4,13 @@
   "sendIdWithCreate": true,
   "urlFields": ["_id"],
   "fields": [{
-      "name": "User ID",
-      "isSort": "",
-      "tableRef": "user"
-    },{
+            "name": "User Name",
+            "tableRef": "user",
+            "key":"user",
+            "type": "fkListViewOne",
+            "level1": "name",
+            "isSort": ""
+        },{
       "name": "Problem",
       "isSort": "",
       "tableRef": "problem"

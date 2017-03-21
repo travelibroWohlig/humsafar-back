@@ -756,14 +756,37 @@ firstapp.filter('showElementArray', function () {
     };
 });
 
-// firstapp.filter('showElementArrays', function () {
-//     return function (obj,level1,level2,level3,level4) {
-//         var retVal = [];
-//         _.each(obj,function(n) {
-//             if()
-//             retVal.push(n[level1][level2][level3][level4]);
-//         });
-//         return _.join(retVal,", ");
+firstapp.filter('dateDifference', function () {
+  return function (startTime, endTime) {
+    // if (startTime == "startTime" || startTime == "" || startTime == null || startTime == undefined) {
+    //   startTime = new Date();
+    // }
+    if (endTime == "" || endTime == null || endTime == undefined) {
+      endTime = new Date();
+    }
+    var a = moment(startTime).format('DD/MM/YYYY'); 
+    var b = moment(endTime).format('DD/MM/YYYY'); 
 
-//     };
-// });
+    startTime = moment(a, 'DD/MM/YYYY'); 
+    endTime = moment(b, 'DD/MM/YYYY'); 
+    var days = endTime.diff(startTime, 'days') + 1;
+    return days;
+  };
+});
+
+firstapp.filter('formatDate', function () {
+  return function (input, type) {
+
+    if (type == 'date') {
+      var returnVal = moment(input).format('D MMM, YYYY');
+    } else if (type == 'time') {
+      var returnVal = moment(input).format('hh:mm a');
+    } else if (type == 'year') {
+      var returnVal = moment(input).format('YYYY');
+    }
+if(returnVal == 'Invalid date'){
+    var returnVal = "-"; 
+}
+    return returnVal;
+  };
+});
