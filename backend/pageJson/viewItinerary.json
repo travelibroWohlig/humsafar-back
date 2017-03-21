@@ -1,31 +1,66 @@
 {
-    "title": "Popular Itinerary",
+    "title": "Itinerary",
     "pageType": "view",
     "sendIdWithCreate": true,
     "urlFields": ["_id"],
     "fields": [{
-        "name": "Name",
-        "isSort": "",
-        "tableRef": "name"
-    }, {
-        "name": "Is Popular",
-        "isSort": "",
-        "tableRef": "isPopulars",
-        "type": "toggle",
-        "url": "itinerary/editData"
-    }, {
-        "name": "Link",
-        "isSort": "",
-        "tableRef": "urlSlug"
-    }],
+            "name": "Id",
+            "isSort": "",
+            "tableRef": "_id",
+            "type": "clipboard"
+        },{
+            "name": "User Name",
+            "tableRef": "user",
+            "key":"user",
+            "type": "fkListViewOne",
+            "level1": "name",
+            "isSort": ""
+        }, {
+            "name": "Itinerary Name",
+            "isSort": "",
+            "tableRef": "name"
+        }, {
+            "name": "Countries",
+            "fieldToBeShown": "country",
+            "type": "fkListView",
+            "key": "countryVisited",
+            "level1": "country",
+            "level2": "name",
+            "isSort": "",
+            "tableRef": "countryVisited"
+        },
+        {
+            "name": "City",
+            "tableRef": "city",
+            "type": "fkListView",
+            "key": "countryVisited",
+            "level1": "cityVisited",
+            "level2": "city",
+            "level3": "name",
+            "isSort": ""
+        },{
+            "name": "Duration",
+            "isSort": "",
+            "tableRef": "",
+            "current":"startTime",
+            "previous":"endTime",
+            "type": "duration"
+        }, {
+            "name": "Is Popular",
+            "isSort": "",
+            "tableRef": "isPopulars",
+            "type": "toggle",
+            "url": "itinerary/editData"
+        }
+    ],
     "action": [{
-        "name": "delete",
-        "icon": "fa-trash",
-        "buttonClass": "btn-danger",
-        "type": "apiCallConfirm",
-        "title": "Delete Popular Itinerary",
-        "content": "Are you sure you want to delete Popular Itinerary?",
-        "api": "itinerary/delete",
+        "name": "Open Link",
+        "icon": "fa-add",
+        "buttonClass": "btn-primary",
+        "type": "redirect",
+        "linkType": "External",
+        "targetBlank":"_blank",
+        "action":"http://travelibro.net/users/sohan-honakeri-2",
         "fieldsToSend": {
             "name": "_id"
         }

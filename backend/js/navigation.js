@@ -11,6 +11,16 @@ var navigationservice = angular.module('navigationservice', [])
                 classis: "active",
                 sref: "#!/page/viewUser//",
                 icon: "phone"
+            }, {
+                name: "Journeys",
+                classis: "active",
+                sref: "#!/page/viewJourney//",
+                icon: "plane"
+            }, {
+                name: "Itinerary",
+                classis: "active",
+                sref: "#!/page/viewItinerary//",
+                icon: "map"
             },
             {
                 name: "Destination Country",
@@ -38,16 +48,6 @@ var navigationservice = angular.module('navigationservice', [])
                 classis: "active",
                 sref: "#!/page/viewReportProblem//",
                 icon: "register"
-            }, {
-                name: "Popular Journeys",
-                classis: "active",
-                sref: "#!/page/viewJourney//",
-                icon: "plane"
-            }, {
-                name: "Popular Itinerary",
-                classis: "active",
-                sref: "#!/page/viewItinerary//",
-                icon: "map"
             }
         ];
 

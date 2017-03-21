@@ -30,7 +30,7 @@
     "angular-bootstrap-toggle-switch": "^0.5.6",
     "angular-material-icons": "https://github.com/klarsys/angular-material-icons.git#~0.6.0",
     "angular-recaptcha": "~2.2.4",
-    "angular-clipboard": "~1.2.1",
+    "angular-clipboard": "^1.5.0",
     "angular-translate": "^2.12.1",
     "angular-toastr": "^2.0.0",
     "angular-ui-sortable": "~0.13.4",

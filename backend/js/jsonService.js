@@ -86,6 +86,7 @@ jsonservicemod.service('JsonService', function ($http, TemplateService, $state, 
         window.location.href = "#/" + action.action;
       } else {
         window.location.href = action.action;
+        window.open(window.location.href, '_blank');
       }
     } else {
       if (value && action && action.fieldsToSend) {

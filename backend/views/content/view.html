@@ -35,7 +35,7 @@
                                         <th ng-repeat="field in json.json.fields">
                                             {{field.name}}
                                         </th>
-                                        <th>Actions</th>
+                                        <th ng-if="json.json.action.length>0">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -44,7 +44,7 @@
                                         <td ng-repeat="field in json.json.fields">
                                             <view-field type="field" value="item"></view-field>
                                         </td>
-                                        <td ng-repeat="but in json.json.action">
+                                        <td ng-repeat="but in json.json.action" ng-if="json.json.action.length>0">
                                             <a class="btn" ng-class="but.buttonClass" ng-click="json.eventAction(but,item) ">
                                                 <i class="fa" ng-class="but.icon"></i>{{but.name}}
                                             </a>

@@ -1,10 +1,53 @@
 {
-    "title": "Popular Journeys",
+    "title": "Journeys",
     "pageType": "view",
     "sendIdWithCreate": true,
     "urlFields": ["_id"],
     "fields": [{
-        "name": "Name",
+            "name": "Id",
+            "isSort": "",
+            "tableRef": "_id",
+            "type": "clipboard"
+        }, {
+            "name": "User Name",
+            "tableRef": "user",
+            "key":"user",
+            "type": "fkListViewOne",
+            "level1": "name",
+            "isSort": ""
+        },{
+        "name": "Journey Name",
+        "isSort": "",
+        "tableRef": "name"
+    },{
+        "name": "Start Date",
+        "isSort": "",
+        "tableRef": "startTime",
+        "type": "date"
+    },{
+        "name": "End Date",
+        "isSort": "",
+        "tableRef": "endTime",
+        "type": "date"
+    },{
+        "name": "Duration",
+        "isSort": "",
+        "tableRef": "",
+        "current":"endTime",
+        "previous":"startTime",
+        "type": "duration"
+        },{
+        "name": "No of Travellers",
+        "isSort": "",
+        "tableRef": "buddies",
+        "type":"showLengthOne"
+    },{
+        "name": "No of Events",
+        "isSort": "",
+        "tableRef": "post",
+        "type":"showLength"
+    },{
+        "name": "Month & Year",
         "isSort": "",
         "tableRef": "name"
     }, {
@@ -13,19 +56,15 @@
         "tableRef": "isPopulars",
         "type": "toggle",
         "url": "journey/editData"
-    }, {
-        "name": "Link",
-        "isSort": "",
-        "tableRef": "urlSlug"
     }],
-    "action": [{
-        "name": "delete",
-        "icon": "fa-trash",
-        "buttonClass": "btn-danger",
-        "type": "apiCallConfirm",
-        "title": "Delete Popular Journey",
-        "content": "Are you sure you want to delete Popular Journey?",
-        "api": "Journey/delete",
+     "action": [ {
+        "name": "Open Link",
+        "icon": "fa-add",
+        "buttonClass": "btn-primary",
+        "type": "redirect",
+        "linkType": "External",
+        "targetBlank":"_blank",
+        "action":"http://travelibro.net/users/sohan-honakeri-2",
         "fieldsToSend": {
             "name": "_id"
         }

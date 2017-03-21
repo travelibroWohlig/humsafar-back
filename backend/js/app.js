@@ -11,7 +11,8 @@ var firstapp = angular.module('firstapp', [
     "ngMap",
     "internationalPhoneNumber",
     "jsonservicemod",
-    'toggle-switch'
+    'toggle-switch',
+    'angular-clipboard'
 ]);
 
 firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
@@ -693,6 +694,11 @@ firstapp.directive('viewField', function ($http, $filter, NavigationService) {
 
                 NavigationService.makePopular(type.url, value._id, value.isPopular, value.popularRank, function () {});
             };
+
+            $scope.showCreatedDate = function (date) {
+                console.log(date);
+                return moment(date).format("DD MM YYYY");
+            };
         }
     };
 });
@@ -726,4 +732,61 @@ firstapp.filter('urlencoder', function () {
     return function (input) {
         return window.encodeURIComponent(input);
     };
+});
+
+
+firstapp.filter('showElementArray', function () {
+    return function (obj, level1, level2, level3) {
+         var retVal = [];
+        if (level3) {
+            _.each(obj, function (n) {
+                _.each(n[level1], function (m) {
+                    retVal.push(m[level2][level3]);
+                });
+
+            });
+        } else if (level2) {
+            _.each(obj, function (n) {
+                retVal.push(n[level1][level2]);
+            });
+        } else {
+            retVal.push([level1]);
+        }
+        return _.join(_.uniq(retVal), ", ");
+    };
+});
+
+firstapp.filter('dateDifference', function () {
+  return function (startTime, endTime) {
+    // if (startTime == "startTime" || startTime == "" || startTime == null || startTime == undefined) {
+    //   startTime = new Date();
+    // }
+    if (endTime == "" || endTime == null || endTime == undefined) {
+      endTime = new Date();
+    }
+    var a = moment(startTime).format('DD/MM/YYYY'); 
+    var b = moment(endTime).format('DD/MM/YYYY'); 
+
+    startTime = moment(a, 'DD/MM/YYYY'); 
+    endTime = moment(b, 'DD/MM/YYYY'); 
+    var days = endTime.diff(startTime, 'days') + 1;
+    return days;
+  };
+});
+
+firstapp.filter('formatDate', function () {
+  return function (input, type) {
+
+    if (type == 'date') {
+      var returnVal = moment(input).format('D MMM, YYYY');
+    } else if (type == 'time') {
+      var returnVal = moment(input).format('hh:mm a');
+    } else if (type == 'year') {
+      var returnVal = moment(input).format('YYYY');
+    }
+if(returnVal == 'Invalid date'){
+    var returnVal = "-"; 
+}
+    return returnVal;
+  };
 });
