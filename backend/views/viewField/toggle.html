@@ -1,11 +1,11 @@
 <div class="toggle-width">
-<div class="row">
-    <div class="col-md-5">
-        <toggle-switch ng-model="value.isPopular" on-change="changeValueToggle(value,type)">
-        </toggle-switch>
+    <div class="row">
+        <div class="col-md-5">
+            <toggle-switch ng-model="value.isPopular" on-change="changeValueToggle(value,type)">
+            </toggle-switch>
+        </div>
+        <div class="col-md-5" ng-show="value.isPopular">
+            <input type="number" class="form-control" placeholder="Ranking" ng-change="changeValueToggle(value,type)" ng-model="value.popularRank">
+        </div>
     </div>
-    <div class="col-md-5" ng-show="value.isPopular">
-        <input type="number" class="form-control" placeholder="Ranking" ng-change="changeValueToggle(value,type)" max="50" ng-model="value.popularRank">
-    </div>
-</div>
 </div>
