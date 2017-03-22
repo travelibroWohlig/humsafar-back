@@ -24,16 +24,16 @@ process.chdir(__dirname);
 var mongoose;
 mongoose = require('mongoose');
 
-global["database"] = "betaTravelibro";
+global["database"] = "gammaTravelibro";
 mongoose.Promise = global.Promise;
 // mongoose.connect('mongodb://104.199.132.38:27017/' + database, function (err) {
-mongoose.connect('mongodb://localhost:27017/' + database, function (err) {
+mongoose.connect('mongodb://localhost:27017/' + database, function(err) {
     if (err) {
         console.log(err);
     }
 });
 // Ensure a "sails" can be located:
-(function () {
+(function() {
     var sails;
     try {
         sails = require('sails');
@@ -59,7 +59,7 @@ mongoose.connect('mongodb://localhost:27017/' + database, function (err) {
             console.error('Your `.sailsrc` file(s) will be ignored.');
             console.error('To resolve this, run:');
             console.error('npm install rc --save');
-            rc = function () {
+            rc = function() {
                 return {};
             };
         }
