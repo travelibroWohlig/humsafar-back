@@ -24,7 +24,7 @@ process.chdir(__dirname);
 var mongoose;
 mongoose = require('mongoose');
 
-global["database"] = "gammaTravelibro";
+global["database"] = "liveTravelibro";
 mongoose.Promise = global.Promise;
 // mongoose.connect('mongodb://104.199.132.38:27017/' + database, function (err) {
 mongoose.connect('mongodb://localhost:27017/' + database, function(err) {
