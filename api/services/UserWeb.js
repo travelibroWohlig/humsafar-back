@@ -288,6 +288,246 @@ var model = {
                 callback("User not found", null);
             }
         });
-    }
+    },
+    deleteUser: function(data, callback) {
+        User.findOne({ accessToken: data.accessToken }, { _id: 1 }).lean().exec(function(err, foundAdmin) {
+            if (err) {
+                console.log(err);
+                callback(err, null);
+            } else if (!sails.lodash.isEmpty(foundAdmin)) {
+                User.findOneAndRemove({
+                    _id: data._id
+                }).lean().exec(function(err, respo) {
+                    if (err) {
+                        console.log(err);
+                        callback(err, null);
+                    } else if (!_.isEmpty(respo)) {
+                        async.parallel([
+                            function(callback) {
+                                Post.remove({
+                                    $or: [{
+                                        user: respo._id
+                                    }, {
+                                        postCreator: respo._id
+                                    }]
+                                }).exec(function(err, done) {
+                                    if (err) {
+                                        console.log(err);
+                                        callback(err, null);
+                                    } else {
+                                        callback(null, "Done");
+                                    }
+                                });
+                            },
+                            function(callback) {
+                                Journey.remove({
+                                    $or: [{
+                                        user: respo._id
+                                    }, {
+                                        journeyCreator: respo._id
+                                    }]
+                                }).exec(function(err, done) {
+                                    if (err) {
+                                        console.log(err);
+                                        callback(err, null);
+                                    } else {
+                                        callback(null, "Done");
+                                    }
+                                });
+                            },
+                            function(callback) {
+                                Itinerary.remove({
+                                    $or: [{
+                                        user: respo._id
+                                    }, {
+                                        creator: respo._id
+                                    }]
+                                }).exec(function(err, done) {
+                                    if (err) {
+                                        console.log(err);
+                                        callback(err, null);
+                                    } else {
+                                        callback(null, "Done");
+                                    }
+                                });
+                            },
+                            function(callback) {
+                                Post.updateMany({}, {
+                                    $pull: {
+                                        like: respo._id,
+                                        buddies: respo._id
+                                    }
+                                }).exec(function(err, done) {
+                                    if (err) {
+                                        console.log(err);
+                                        callback(err, null);
+                                    } else {
+                                        callback(null, "Done");
+                                    }
+                                });
+                            },
+                            function(callback) {
+                                Journey.updateMany({}, {
+                                    $pull: {
+                                        like: respo._id,
+                                        buddies: respo._id
+                                    }
+                                }).exec(function(err, done) {
+                                    if (err) {
+                                        console.log(err);
+                                        callback(err, null);
+                                    } else {
+                                        callback(null, "Done");
+                                    }
+                                });
+                            },
+                            function(callback) {
+                                Itinerary.updateMany({}, {
+                                    $pull: {
+                                        like: respo._id,
+                                        buddies: respo._id
+                                    }
+                                }).exec(function(err, done) {
+                                    if (err) {
+                                        console.log(err);
+                                        callback(err, null);
+                                    } else {
+                                        callback(null, "Done");
+                                    }
+                                });
+                            },
+                            function(callback) {
+                                Postphotos.updateMany({}, {
+                                    $pull: {
+                                        like: respo._id,
+                                        buddies: respo._id
+                                    }
+                                }).exec(function(err, done) {
+                                    if (err) {
+                                        console.log(err);
+                                        callback(err, null);
+                                    } else {
+                                        callback(null, "Done");
+                                    }
+                                });
+                            },
+                            function(callback) {
+                                User.updateMany({}, {
+                                    $pull: {
+                                        following: respo._id
+                                        followers: respo._id
+                                    }
+                                }).exec(function(err, done) {
+                                    if (err) {
+                                        console.log(err);
+                                        callback(err, null);
+                                    } else {
+                                        callback(null, "Done");
+                                    }
+                                });
+                            },
+                            function(callback) {
+                                Comment.updateMany({}, {
+                                    $pull: {
+                                        like: respo._id
+                                    }
+                                }).exec(function(err, done) {
+                                    if (err) {
+                                        console.log(err);
+                                        callback(err, null);
+                                    } else {
+                                        callback(null, "Done");
+                                    }
+                                });
+                            },
+                            function(callback) {
+                                Review.remove({
+                                    user: respo._id
+                                }).exec(function(err, done) {
+                                    if (err) {
+                                        console.log(err);
+                                        callback(err, null);
+                                    } else {
+                                        callback(null, "Done");
+                                    }
+                                });
+                            },
+                            function(callback) {
+                                Comment.remove({
+                                    user: respo._id
+                                }).exec(function(err, done) {
+                                    if (err) {
+                                        console.log(err);
+                                        callback(err, null);
+                                    } else {
+                                        callback(null, "Done");
+                                    }
+                                });
+                            },
+                            function(callback) {
+                                Notification.remove({
+                                    $or: [{
+                                        userFrom: respo._id
+                                    }, {
+                                        userTo: respo._id
+                                    }]
+                                }).exec(function(err, done) {
+                                    if (err) {
+                                        console.log(err);
+                                        callback(err, null);
+                                    } else {
+                                        callback(null, "Done");
+                                    }
+                                });
+                            },
+                            function(callback) {
+                                Message.remove({
+                                    $or: [{
+                                        userFrom: respo._id
+                                    }, {
+                                        userTo: respo._id
+                                    }]
+                                }).exec(function(err, done) {
+                                    if (err) {
+                                        console.log(err);
+                                        callback(err, null);
+                                    } else {
+                                        callback(null, "Done");
+                                    }
+                                });
+                            },
+                            function(callback) {
+                                ActivityFeed.remove({
+                                    $or: [{
+                                        user: respo._id
+                                    }, {
+                                        ofUser: respo._id
+                                    }]
+                                }).exec(function(err, done) {
+                                    if (err) {
+                                        console.log(err);
+                                        callback(err, null);
+                                    } else {
+                                        callback(null, "Done");
+                                    }
+                                });
+                            }
+                        ], function(err, done) {
+                            if (err) {
+                                console.log(err);
+                                callback(err, null);
+                            } else {
+                                callback(null, "Deleted successfully");
+                            }
+                        });
+                    } else {
+                        callback(null, "Deleted successfully");
+                    }
+                });
+            } else {
+                callback("Invalid Access-Token", null);
+            }
+        });
+    },
 };
 module.exports = _.assign(module.exports, exports, model);
