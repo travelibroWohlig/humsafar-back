@@ -414,7 +414,7 @@ var model = {
                             function(callback) {
                                 User.updateMany({}, {
                                     $pull: {
-                                        following: respo._id
+                                        following: respo._id,
                                         followers: respo._id
                                     }
                                 }).exec(function(err, done) {
