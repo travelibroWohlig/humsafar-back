@@ -27,7 +27,12 @@ mongoose = require('mongoose');
 global["database"] = "liveTravelibro";
 mongoose.Promise = global.Promise;
 // mongoose.connect('mongodb://104.199.132.38:27017/' + database, function (err) {
-mongoose.connect('mongodb://localhost:27017/' + database, function(err) {
+global.username = "travelibro";
+global.password = "vmGYE+%8)&";
+global.host = "localhost";
+global.port = "8653";
+
+mongoose.connect('mongodb://' + username + ':' + encodeURI(password) + '@' + host + ':' + port + '/' + database + '/', function(err) {
     if (err) {
         console.log(err);
     }

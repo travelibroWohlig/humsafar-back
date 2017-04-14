@@ -26,7 +26,7 @@ module.exports = {
      ***************************************************************************/
 
     port: 83,
-    realHost: "http://travelibrobackend.wohlig.com",
+    realHost: "http://travelibroadmin.travelibro.com",
     emails: ["chintan@wohlig.com", "jagruti@wohlig.com", "tushar@wohlig.com", "chirag@wohlig.com", "harsh@wohlig.com", "sohan@wohlig.com", "mshah@travelibro.com", "vignesh.kasturi@travelibro.com"]
 
     /***************************************************************************
