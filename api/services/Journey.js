@@ -113,18 +113,19 @@ var schema = new Schema({
 
 
 schema.plugin(deepPopulate, {
-      populate: { 'user': {
-      select: '_id name'
+    populate: {
+        'user': {
+            select: '_id name'
+        }
     }
-}
 });
 schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
 module.exports = mongoose.model('Journey', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema,"user","user"));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema, "user", "user"));
 var model = {
-    getJourney: function (data, callback) {
+    getJourney: function(data, callback) {
         data.page = parseInt(data.page);
         var respo = {};
         respo.results = [];
@@ -149,7 +150,7 @@ var model = {
             }
         }
         async.parallel([
-            function (callback) {
+            function(callback) {
                 Journey.aggregate([{
                     $match: {
                         "post.0": {
@@ -206,7 +207,7 @@ var model = {
                         startTime: 1,
                         createdAt: 1
                     }
-                }]).exec(function (err, foundJourney) {
+                }]).exec(function(err, foundJourney) {
                     if (err) {
                         console.log(err);
                         callback(err, null);
@@ -220,13 +221,13 @@ var model = {
                     }
                 });
             },
-            function (callback) {
+            function(callback) {
                 Journey.count({
                     "post.0": {
                         $exists: true
                     },
                     status: true
-                }).lean().exec(function (err, foundJourney) {
+                }).lean().exec(function(err, foundJourney) {
                     if (err) {
                         console.log(err);
                         callback(err, null);
@@ -239,7 +240,7 @@ var model = {
                     }
                 });
             }
-        ], function (err, done) {
+        ], function(err, done) {
             if (err) {
                 console.log(err);
                 callback(err, null);
@@ -248,7 +249,7 @@ var model = {
             }
         });
     },
-    editData: function (data, callback) {
+    editData: function(data, callback) {
         Journey.findOneAndUpdate({
             _id: data._id
         }, {
@@ -256,7 +257,7 @@ var model = {
                 isPopular: data.status,
                 popularRank: data.popularRank
             }
-        }).lean().exec(function (err, updated) {
+        }).lean().exec(function(err, updated) {
             if (err) {
                 console.log(err);
                 callback(err, null);
@@ -264,6 +265,84 @@ var model = {
                 callback(null, "Updated");
             } else {
                 callback("Journey not found", null);
+            }
+        });
+    },
+    deleteData: function(data, callback) {
+        Journey.findOneAndRemove({
+            _id: data._id
+        }).exec(function(err, postData) {
+            if (err) {
+                console.log(err);
+                callback(err, null);
+            } else if (!_.isEmpty(postData)) {
+                if (postData.post && postData.post.length > 0) {
+                    Post.remove({
+                        _id: {
+                            $in: postData.post
+                        }
+                    }, function(err, data2) {
+                        if (err) {
+                            console.log(err);
+                            callback(err, null);
+                        } else {
+                            callback(null, "Deleted successfully");
+                            Postphotos.remove({
+                                post: {
+                                    $in: postData.post
+                                }
+                            }, function(err, data2) {
+                                if (err) {
+                                    console.log(err);
+                                }
+                            });
+                            Review.remove({
+                                $or: [{
+                                    post: {
+                                        $in: postData.post
+                                    }
+                                }, {
+                                    journey: postData._id
+                                }]
+                            }, function(err, data2) {
+                                if (err) {
+                                    console.log(err);
+                                }
+                            });
+                            ActivityFeed.remove({
+                                $or: [{
+                                    journey: postData._id
+                                }, {
+                                    post: {
+                                        $in: postData.post
+                                    }
+                                }]
+                            }).exec(function(err, done) {
+                                if (err) {
+                                    console.log(err);
+                                }
+                            });
+                        }
+                    });
+                } else {
+                    callback(null, "Rejected request");
+                    Review.remove({
+                        journey: data._id
+                    }, function(err, data2) {
+                        if (err) {
+                            console.log(err);
+                        }
+                    });
+                    ActivityFeed.remove({
+                        journey: data._id
+                    }).exec(function(err, done) {
+                        if (err) {
+                            console.log(err);
+                        }
+                    });
+                }
+            } else {
+                callback("Some error", null);
             }
         });
     }

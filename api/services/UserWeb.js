@@ -35,6 +35,9 @@ var schema = new Schema({
         type: String,
         default: ""
     },
+    backendPassword: {
+        type: String
+    },
     status: {
         type: String,
         default: "public"
@@ -289,8 +292,8 @@ var model = {
             }
         });
     },
-    deleteUser: function(data, callback) {
-        User.findOne({ accessToken: data.accessToken }, { _id: 1 }).lean().exec(function(err, foundAdmin) {
+    deleteData: function(data, callback) {
+        UserWeb.findOne({ _id: data._id }, { _id: 1 }).lean().exec(function(err, foundAdmin) {
             if (err) {
                 console.log(err);
                 callback(err, null);

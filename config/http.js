@@ -66,23 +66,38 @@ module.exports.http = {
             req.modelName = _.upperFirst(req.models[2]);
 
 
-            if (req.body && req.body._accessToken) {
-                User.profile(req.body, function(err, data) {
-                    if (err) {
-                        res.json({
-                            error: err,
-                            value: false
-                        });
-                    } else if (data) {
-                        req.user = data;
-                        next();
-                    } else {
-                        res.json({
-                            error: "Invalid AccessToken",
-                            value: false
-                        });
-                    }
-                }, "Get Google");
+            if (req.path.indexOf("delete") !== -1) {
+                if (req.body && req.body.securePassword) {
+                    User.findOne({ railsId: 2 }, { backendPassword: 1 }, function(err, foundUser) {
+                        if (err) {
+                            res.json({
+                                error: err,
+                                value: false
+                            });
+                        } else if (!_.isEmpty(foundUser)) {
+                            bcrypt.compare(foundUser.backendPassword, req.body.securePassword, function(err, respo2) {
+                                if (respo2 === true) {
+                                    next();
+                                } else {
+                                    res.json({
+                                        error: "Invalid Password",
+                                        value: false
+                                    });
+                                }
+                            });
+                        } else {
+                            res.json({
+                                error: "Invalid Password",
+                                value: false
+                            });
+                        }
+                    }, "Get Google");
+                } else {
+                    res.json({
+                        error: "Invalid Params",
+                        value: false
+                    });
+                }
             } else {
                 next();
             }

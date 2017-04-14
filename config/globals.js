@@ -90,7 +90,7 @@ global["request"] = require('request');
 global["fs"] = require('fs');
 global["json2xls"] = require('json2xls');
 global["xlsx"] = require('node-xlsx').default;
-// global["pdf"] = require('html-pdf');
+global["bcrypt"] = require('bcrypt');
 
 // passport Globals
 global["passport"] = require('passport');
@@ -104,16 +104,16 @@ global["jsFiles"] = require("../frontend/files.js");
 global["jsFilesBackend"] = require("../backend/files.js");
 
 //colored console
-global["blue"] = function (data) {
+global["blue"] = function(data) {
     console.log(chalk.blue(data));
 };
-global["red"] = function (data) {
+global["red"] = function(data) {
     console.log(chalk.red(data));
 };
-global["green"] = function (data) {
+global["green"] = function(data) {
     console.log(chalk.green(data));
 };
-global["log"] = function (data) {
+global["log"] = function(data) {
     console.log(data);
 };
 

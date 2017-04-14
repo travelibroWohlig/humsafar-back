@@ -215,6 +215,35 @@ var model = {
                 callback("Itinerary not found", null);
             }
         });
+    },
+    deleteData: function(data, callback) {
+        Itinerary.findOneAndRemove({
+            _id: data._id
+        }).lean().exec(function(err, updated) {
+            if (err) {
+                console.log(err);
+                callback(err, null);
+            } else if (!_.isEmpty(updated)) {
+                callback(null, "Updated successfully");
+                ActivityFeed.remove({
+                    ofUser: updated.user,
+                    itinerary: data._id
+                }, function(err, removed) {
+                    if (err) {
+                        console.log(err);
+                    }
+                });
+                Postphotos.remove({
+                    itinerary: data._id
+                }, function(err, removed) {
+                    if (err) {
+                        console.log(err);
+                    }
+                });
+            } else {
+                callback("Itinerary not found", null);
+            }
+        });
     }
 };
 module.exports = _.assign(module.exports, exports, model);
