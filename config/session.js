@@ -63,7 +63,7 @@ module.exports.session = {
     // prefix: 'sess:',
 
 
-    url: 'mongodb://' + username + ':' + encodeURI(password) + '@' + host + ':' + port + '/' + database + '/',
+    url: 'mongodb://' + username + ':' + encodeURI(password) + '@' + host + ':' + port + '/' + database,
     collection: 'sessionsForServer',
     auto_reconnect: false,
     ssl: false,
