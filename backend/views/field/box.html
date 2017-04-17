@@ -1,3 +1,6 @@
+<div class="">
+    {{type.tableRef}}
+</div>
 <div>
     <a class="btn btn-primary pull-right" ng-click="createBox('Create')">Add New</a>
     <label>{{type.name}} <span ng-show="type.required">*</span></label>
@@ -10,7 +13,7 @@
         <table class="table table-input" ng-if="model.length != 0">
             <thead>
                 <tr>
-                    <th ng-repeat="field in type.fields" ng-if="field.onView">{{field.name}}</th>
+                    <th ng-repeat="field in mustDo.fields" ng-if="field.onView">{{field.name}}</th>
                     <th width="150px">Actions</th>
                 </tr>
             </thead>

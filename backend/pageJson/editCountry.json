@@ -54,22 +54,6 @@
         "validation": ["", "trim", ""],
         "url": ""
     }, {
-        "name": "Weather",
-        "type": "text",
-        "tableRef": "weather",
-        "placeholder": "Enter Weather",
-        "id": "weather",
-        "validation": ["", "trim", ""],
-        "url": ""
-    }, {
-        "name": "Temperature",
-        "type": "text",
-        "tableRef": "temperature",
-        "placeholder": "Enter Temperature",
-        "id": "temperature",
-        "validation": ["", "trim", ""],
-        "url": ""
-    }, {
         "name": "Flag",
         "type": "image",
         "view":true,
@@ -109,7 +93,65 @@
         "id": "countryItineraryBanner",
         "validation": ["", "trim", ""],
         "url": ""
-    }],
+    },{
+        "name": "Mustdo",
+        "type": "box",
+        "tableRef": "mustDo",
+        "validation": ["", "trim", ""],
+        "fields": [{
+        "name": "Sequence No",
+        "type": "number",
+        "tableRef": "sequenceNo",
+        "placeholder": "Enter Sequence No",
+        "id": "sequenceNo",
+        "validation": ["", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter Name",
+        "id": "name",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Description",
+        "type": "textarea",
+        "tableRef": "description",
+        "placeholder": "Enter Description",
+        "id": "description",
+        "validation": ["", "trim", ""],
+        "url": ""
+    },{
+        "name": "City",
+        "type": "selectFromTable",
+        "tableRef": "city",
+        "placeholder": "Enter City",
+        "id": "city",
+        "searchApi":"searchCall",
+        "validation": ["", "trim", ""],
+        "url": "city/search",
+        "dropDownType": "single"
+    },{
+        "name": "Main Photo",
+        "type": "image",
+        "view":true,
+        "size":"1000 × 664",
+        "tableRef": "mainPhoto",
+        "id": "mainPhoto",
+        "validation": ["", "trim", ""],
+        "url": ""
+    } , {
+        "name": "Image Credit",
+        "type": "image",
+        "view":true,
+         "size":"1000 × 664",
+        "tableRef": "imageCredit",
+        "id": "imageCredit",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }]
+        }],
     "action": [{
         "name": "submit",
         "action": "submitCountry",

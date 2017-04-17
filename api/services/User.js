@@ -44,6 +44,10 @@ var schema = new Schema({
         type: String,
         default: ""
     },
+    backendPassword: {
+        type: String,
+        default: ""
+    },
     mobile: {
         type: String,
         default: ""

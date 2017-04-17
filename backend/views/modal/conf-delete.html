@@ -1,3 +1,17 @@
+
+<div class="before-after-password">
+    <div class="modal-header">
+        <h4 class="modal-title">Please Confirm Password to Delete?</h4>
+    </div>
+<div class="modal-body">
+    <input type="password" class="form-control" ng-model="securedPassword" placeholder="Confirm Password">
+</div>
+<div class="modal-footer">
+   <button class="btn btn-primary btn-outline btn-small" type="button" ng-click="close(securedPassword)">Submit</button>
+   <button class="btn btn-primary btn-outline btn-small" type="button" ng-click="close(false)">No</button>
+</div>
+</div>
+<!--<div class="after-password">
 <div class="modal-header">
    <h4 class="modal-title">Are you sure you want to delete?</h4>
 </div>
@@ -5,3 +19,5 @@
    <button class="btn btn-primary btn-outline btn-small" type="button" ng-click="close(true)">Yes</button>
    <button class="btn btn-primary btn-outline btn-small" type="button" ng-click="close(false)">No</button>
 </div>
+</div>-->
+

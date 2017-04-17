@@ -251,7 +251,7 @@ firstapp.directive('uploadImage', function ($http, $filter, $timeout) {
                             $scope.type = "image";
                         }
                         $scope.model = data.data[0];
-                        console.log($scope.model, 'model means blob')
+                        console.log($scope.model, 'model means blob');
 
                     }
                     $timeout(function () {
@@ -513,36 +513,36 @@ firstapp.directive('addressForm', function ($document) {
     };
 });
 
-// firstapp.directive('box', function ($uibModal) {
-//     return {
-//         templateUrl: 'views/directive/box.html',
-//         scope: {
-//             type: '=type',
-//             model: '=ngModel'
-//         },
-//         link: function ($scope, element, attrs) {
-//             $scope.model = {};
-//             console.log($scope.model);
-//             $scope.data = {};
-//             $scope.eventModel = function (text) {
-//                 $scope.type.state = text;
-//                 var modalInstance = $uibModal.open({
-//                     animation: $scope.animationsEnabled,
-//                     templateUrl: '/backend/views/modal/modal.html',
-//                     size: 'lg',
-//                     scope: $scope
-//                 });
-//                 $scope.close = function (value) {
-//                     callback(value);
-//                     modalInstance.close("cancel");
-//                 };
-//             };
-//             $scope.submitModal = function (moddata) {
-//                 console.log(moddata);
-//             };
-//         }
-//     };
-// });
+firstapp.directive('box', function ($uibModal) {
+    return {
+        templateUrl: 'views/directive/box.html',
+        scope: {
+            type: '=type',
+            model: '=ngModel'
+        },
+        link: function ($scope, element, attrs) {
+            $scope.model = {};
+            console.log($scope.model);
+            $scope.data = {};
+            $scope.eventModel = function (text) {
+                $scope.type.state = text;
+                var modalInstance = $uibModal.open({
+                    animation: $scope.animationsEnabled,
+                    templateUrl: '/backend/views/modal/modal.html',
+                    size: 'lg',
+                    scope: $scope
+                });
+                $scope.close = function (value) {
+                    callback(value);
+                    modalInstance.close("cancel");
+                };
+            };
+            $scope.submitModal = function (moddata) {
+                console.log(moddata);
+            };
+        }
+    };
+});
 
 var aa = {};
 firstapp.directive('multipleSelect', function ($document, $timeout) {

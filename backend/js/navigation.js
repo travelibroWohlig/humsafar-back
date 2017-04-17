@@ -23,12 +23,12 @@ var navigationservice = angular.module('navigationservice', [])
                 icon: "map"
             },
             {
-                name: "Destination Country",
+                name: "Country",
                 classis: "active",
                 sref: "#!/page/viewCountry//",
                 icon: "map"
             }, {
-                name: "Destination City",
+                name: "City",
                 classis: "active",
                 sref: "#!/page/viewCity//",
                 icon: "location"

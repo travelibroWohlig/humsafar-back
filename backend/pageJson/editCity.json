@@ -30,22 +30,6 @@
         "validation": ["", "trim", ""],
         "url": ""
     }, {
-        "name": "Weather",
-        "type": "text",
-        "tableRef": "weather",
-        "placeholder": "Enter Weather",
-        "id": "weather",
-        "validation": ["", "trim", ""],
-        "url": ""
-    }, {
-        "name": "Temperature",
-        "type": "text",
-        "tableRef": "temperature",
-        "placeholder": "Enter Temperature",
-        "id": "temperature",
-        "validation": ["", "trim", ""],
-        "url": ""
-    }, {
         "name": "City Cover Photo",
         "type": "image",
         "view":true,

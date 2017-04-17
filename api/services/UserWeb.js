@@ -297,8 +297,8 @@ var model = {
             if (err) {
                 console.log(err);
                 callback(err, null);
-            } else if (!sails.lodash.isEmpty(foundAdmin)) {
-                User.findOneAndRemove({
+            } else if (!_.isEmpty(foundAdmin)) {
+                UserWeb.findOneAndRemove({
                     _id: data._id
                 }).lean().exec(function(err, respo) {
                     if (err) {

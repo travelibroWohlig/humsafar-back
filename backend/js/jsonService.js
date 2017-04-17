@@ -101,6 +101,7 @@ jsonservicemod.service('JsonService', function ($http, TemplateService, $state, 
       } else if (action && action.type == "apiCallConfirm") {
         globalfunction.confDel(function (value2) {
           if (value2) {
+            value.securePassword=value2;
             NavigationService.delete(action.api, value, function (data) {
               if (data.value) {
                 toastr.success(JsonService.json.title + " deleted successfully.", JsonService.json.title + " deleted");

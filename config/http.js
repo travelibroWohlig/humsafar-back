@@ -66,16 +66,16 @@ module.exports.http = {
             req.modelName = _.upperFirst(req.models[2]);
 
 
-            if (req.path.indexOf("delete") !== -1) {
+            if (req.path.indexOf("/delete") !== -1) {
                 if (req.body && req.body.securePassword) {
-                    User.findOne({ railsId: 2 }, { backendPassword: 1 }, function(err, foundUser) {
+                    User.findOne({ backendPassword:{$exists:true}}, { backendPassword: 1 }, function(err, foundUser) {
                         if (err) {
                             res.json({
                                 error: err,
                                 value: false
                             });
                         } else if (!_.isEmpty(foundUser)) {
-                            bcrypt.compare(foundUser.backendPassword, req.body.securePassword, function(err, respo2) {
+                            bcrypt.compare(req.body.securePassword,foundUser.backendPassword, function(err, respo2) {
                                 if (respo2 === true) {
                                     next();
                                 } else {

@@ -64,6 +64,17 @@
         "fieldsToSend": {
             "name": "_id"
         }
+    },{
+        "name": "delete",
+        "icon": "fa-trash",
+        "buttonClass": "btn-danger",
+        "type": "apiCallConfirm",
+        "title": "Delete Report Problem",
+        "content": "Are you sure you want to delete Report Problem?",
+        "api": "ReportProblems/delete",
+        "fieldsToSend": {
+            "name": "_id"
+        }
     }],
     "apiCall": {
         "url": "itinerary/search",

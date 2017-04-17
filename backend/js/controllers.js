@@ -250,6 +250,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             });
             $scope.close = function (value) {
+                console.log("delete api called");
                 callback(value);
                 modalInstance.close("cancel");
             };

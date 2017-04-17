@@ -41,6 +41,19 @@
         "tableRef": "isPopulars",
         "type": "toggle",
         "url": "userweb/editData"
+    }],    
+    "action": [ {
+        "name": "delete",
+        "icon": "fa-trash",
+        "buttonClass": "btn-danger",
+        "type": "apiCallConfirm",
+        "title": "Delete User",
+        "content": "Are you sure you want to delete User?",
+        "api": "UserWeb/delete",
+        "fieldsToSend": {
+            "name": "_id",
+            "securedPassword":"securedPassword"
+        }
     }],
     "apiCall": {
         "url": "UserWeb/search",

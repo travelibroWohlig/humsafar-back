@@ -63,6 +63,12 @@ module.exports.session = {
     // prefix: 'sess:',
 
 
+    // url: 'mongodb://localhost:27017/' + database,
+    // collection: 'sessionsForServer',
+    // auto_reconnect: false,
+    // ssl: false,
+    // stringify: true
+
     url: 'mongodb://' + username + ':' + encodeURI(password) + '@' + host + ':' + port + '/' + database,
     collection: 'sessionsForServer',
     auto_reconnect: false,
