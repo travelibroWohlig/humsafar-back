@@ -9,7 +9,7 @@ require('mongoose-middleware').initialize(mongoose);
 var Schema = mongoose.Schema;
 
 var schema = new Schema({
-        railsId: Number,
+    railsId: Number,
     railsName: {
         type: String
     },
@@ -69,6 +69,6 @@ schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
 module.exports = mongoose.model('Country', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema, 'mustDo', 'mustDo'));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema, 'country', 'country'));
 var model = {};
 module.exports = _.assign(module.exports, exports, model);
